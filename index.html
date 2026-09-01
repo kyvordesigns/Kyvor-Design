@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KYVOR DESIGNS</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:#f7f7f7;
+  color:#111;
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  height:70px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.logo span{
+  font-weight:400;
+}
+
+nav a{
+  color:#111;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.cart-btn{
+  margin-left:20px;
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:11px 18px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(135deg,#eee,#fff);
+}
+
+.hero small{
+  letter-spacing:4px;
+  font-weight:bold;
+  color:#555;
+}
+
+.hero h1{
+  font-size:clamp(55px,10vw,100px);
+  line-height:.9;
+  letter-spacing:-5px;
+  margin:20px 0;
+}
+
+.hero p{
+  color:#666;
+  max-width:550px;
+  margin:auto;
+  line-height:1.6;
+}
+
+.shop-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 30px;
+  background:#111;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.section h2{
+  font-size:35px;
+  margin-bottom:35px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.product{
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.product-image{
+  aspect-ratio:1/1.1;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:18px;
+}
+
+.product-info h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.fabric{
+  color:#777;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-top:16px;
+  margin-bottom:8px;
+}
+
+.sizes{
+  display:flex;
+  gap:8px;
+}
+
+.size-btn{
+  padding:9px 16px;
+  background:white;
+  color:#111;
+  border:1px solid #ccc;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.size-btn.selected{
+  background:#111;
+  color:white;
+  border-color:#111;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.quantity button{
+  width:32px;
+  height:32px;
+  border:1px solid #ccc;
+  background:#fff;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.add{
+  width:100%;
+  margin-top:18px;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  background:#111;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.about{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.about h2{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:700px;
+  margin:auto;
+  color:#ccc;
+  line-height:1.8;
+}
+
+footer{
+  background:#fff;
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:13px;
+}
+
+/* CART */
+
+.cart{
+  position:fixed;
+  right:-420px;
+  top:0;
+  width:min(400px,100%);
+  height:100vh;
+  background:#fff;
+  z-index:1000;
+  padding:25px;
+  box-shadow:-10px 0 30px rgba(0,0,0,.15);
+  transition:.3s;
+  overflow-y:auto;
+}
+
+.cart.open{
+  right:0;
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.cart-item{
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.cart-total{
+  margin-top:25px;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.whatsapp{
+  width:100%;
+  margin-top:18px;
+  padding:14px;
+  border:0;
+  border-radius:8px;
+  background:#111;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  nav a{
+    display:none;
+  }
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .section{
+    padding:55px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+  <div class="logo">
+    KYVOR <span>DESIGNS</span>
+  </div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+<a href="#faq">FAQ</a>
+
+<a href="#policy">Policy</a>
+
+<a href="#privacy" style="color:#777; text-decoration:none; margin:0 8px;">Privacy</a>
+<a href="#terms" style="color:#777; text-decoration:none; margin:0 8px;">Terms</a>
+
+
+    <button class="cart-btn" onclick="openCart()">
+      Cart (<span id="cartCount">0</span>)
+    </button>
+  </div>
+
+</nav>
+</header>
+
+
+<section class="hero" id="home">
+
+  <div>
+
+    <small>KYVOR DESIGNS</small>
+
+    <h1>
+      WEAR<br>
+      YOUR<br>
+      STYLE.
+    </h1>
+
+    <p>
+      Premium printed T-shirts made for people
+      who want their style to stand out.
+    </p>
+
+    <a href="#shop" class="shop-btn">
+      SHOP COLLECTION
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="shop">
+
+  <h2>Latest Collection</h2>
+
+  <div class="products">
+
+    <div class="product">
+
+      <div class="product-image">
+        <img src="images/deer.jpeg" alt="KYVOR Deer Tee">
+      </div>
+
+      <div class="product-info">
+
+        <h3>KYVOR Deer Tee</h3>
+
+        <div class="fabric">
+          100% Pure Cotton
+        </div>
+
+        <div class="price">
+          ₹380
+        </div>
+
+
+        <span class="label">
+          Select Size
+        </span>
+
+        <div class="sizes">
+
+          <button
+            class="size-btn selected"
+            onclick="selectSize('M',this)">
+            M
+          </button>
+
+          <button
+            class="size-btn"
+            onclick="selectSize('L',this)">
+            L
+          </button>
+
+        </div>
+
+
+        <span class="label">
+          Quantity
+        </span>
+
+        <div class="quantity">
+
+          <button onclick="changeQuantity(-1)">
+            −
+          </button>
+
+          <span id="quantity">
+            1
+          </span>
+
+          <button onclick="changeQuantity(1)">
+            +
+          </button>
+
+        </div>
+
+
+        <button class="add" onclick="addToCart()">
+          ADD TO CART
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+  <h2>ABOUT KYVOR</h2>
+
+  <p>
+    KYVOR DESIGNS is an independent clothing brand
+    focused on premium printed T-shirts and unique designs.
+    Our goal is simple — create pieces that look different,
+    feel comfortable and represent your style.
+  </p>
+
+</section>
+
+
+ <footer>
+
+  <div style="font-size:22px; font-weight:900; letter-spacing:2px; margin-bottom:15px;">
+    KYVOR <span style="font-weight:400;">DESIGNS</span>
+  </div>
+
+  <div style="margin-bottom:15px;">
+    <a href="#home" style="color:#777; text-decoration:none; margin:0 8px;">Home</a>
+    <a href="#shop" style="color:#777; text-decoration:none; margin:0 8px;">Shop</a>
+    <a href="#about" style="color:#777; text-decoration:none; margin:0 8px;">About</a>
+    <a href="#contact" style="color:#777; text-decoration:none; margin:0 8px;">Contact</a>
+    <a href="#faq" style="color:#777; text-decoration:none; margin:0 8px;">FAQ</a>
+    <a href="#policy" style="color:#777; text-decoration:none; margin:0 8px;">Policy</a>
+  </div>
+
+  <div style="font-size:13px; color:#999;">
+    © 2026 KYVOR DESIGNS. All Rights Reserved.
+  </div>
+
+</footer>
+
+
+<div class="cart" id="cart">
+
+  <div class="cart-head">
+
+    <h2>Your Cart</h2>
+
+    <button class="close" onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+  <div id="cartItems">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <div class="cart-total">
+    Total: ₹<span id="cartTotal">0</span>
+  </div>
+
+  <div style="margin-top:25px;">
+
+  <h3 style="margin-bottom:15px;">Order Details</h3>
+
+  <input
+    type="text"
+    id="customerName"
+    placeholder="Your Name"
+    style="width:100%; padding:13px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
+
+  <input
+    type="tel"
+    id="customerPhone"
+    placeholder="Mobile Number"
+    style="width:100%; padding:13px; margin-bottom:10px; border:1px solid #ccc; border-radius:8px;">
+
+  <textarea
+    id="customerAddress"
+    placeholder="Full Delivery Address"
+    rows="4"
+    style="width:100%; padding:13px; border:1px solid #ccc; border-radius:8px; resize:vertical;"></textarea>
+
+</div>
+
+<div style="margin-top:25px; padding:20px; border:1px solid #eee; border-radius:12px; text-align:center;">
+  <h3 style="margin-bottom:10px;">UPI PAYMENT</h3>
+
+  <p style="color:#666; font-size:14px; margin-bottom:15px;">
+    Please fill your order details above and click PAY NOW.
+  </p>
+
+  <button class="whatsapp" onclick="startPayment()">
+    PAY NOW
+  </button>
+
+  <div id="paymentBox" style="display:none; margin-top:20px;">
+    <p style="color:#666; font-size:14px; margin-bottom:15px;">
+      Scan the QR code below and complete your payment.
+    </p>
+
+    <img src="images/qr.jpeg"
+         alt="KYVOR DESIGNS UPI QR"
+         style="width:220px; max-width:100%; border-radius:8px;">
+
+    <p style="color:#777; font-size:13px; margin-top:12px;">
+      After completing the payment, click the button below.
+    </p>
+
+    <button class="whatsapp" onclick="paymentDone()">
+      I HAVE PAID — SEND ORDER
+    </button>
+  </div>
+</div>
+
+</div>
+
+
+<script>
+
+let selectedSize = "M";
+let quantity = 1;
+let cart = [];
+
+
+function selectSize(size, button){
+
+  selectedSize = size;
+
+  document
+    .querySelectorAll(".size-btn")
+    .forEach(btn => {
+      btn.classList.remove("selected");
+    });
+
+  button.classList.add("selected");
+}
+
+
+function changeQuantity(amount){
+
+  quantity += amount;
+
+  if(quantity < 1){
+    quantity = 1;
+  }
+
+  document.getElementById("quantity").innerText = quantity;
+}
+
+
+function addToCart(){
+
+  cart.push({
+    name: "KYVOR Deer Tee",
+    price: 380,
+    size: selectedSize,
+    quantity: quantity
+  });
+
+  updateCart();
+  openCart();
+}
+
+
+function updateCart(){
+
+  const container = document.getElementById("cartItems");
+
+  document.getElementById("cartCount").innerText =
+    cart.reduce((sum,item) => sum + item.quantity, 0);
+
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+      "<p>Your cart is empty.</p>";
+
+    document.getElementById("cartTotal").innerText = "0";
+
+    return;
+  }
+
+
+  let total = 0;
+
+  container.innerHTML = "";
+
+
+  cart.forEach((item,index) => {
+
+    total += item.price * item.quantity;
+
+    container.innerHTML += `
+
+      <div class="cart-item">
+
+        <strong>${item.name}</strong>
+
+        Size: ${item.size}<br>
+
+        Quantity: ${item.quantity}<br>
+
+        Price: ₹${item.price * item.quantity}
+
+        <br><br>
+
+        <button
+          onclick="removeItem(${index})">
+          Remove
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+
+  document.getElementById("cartTotal").innerText =
+    total;
+}
+
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+}
+
+
+function openCart(){
+
+  document
+    .getElementById("cart")
+    .classList.add("open");
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cart")
+    .classList.remove("open");
+}
+
+function startPayment(){
+  if(cart.length === 0){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  let name = document.getElementById("customerName").value.trim();
+  let phoneNumber = document.getElementById("customerPhone").value.trim();
+  let address = document.getElementById("customerAddress").value.trim();
+
+  if(name === "" || phoneNumber === "" || address === ""){
+    alert("Please fill all order details first.");
+    return;
+  }
+
+  if(!/^[0-9]{10}$/.test(phoneNumber)){
+    alert("Please enter a valid 10-digit mobile number.");
+    return;
+  }
+
+  document.getElementById("paymentBox").style.display = "block";
+}
+
+function paymentDone(){
+  orderWhatsApp();
+}
+
+function orderWhatsApp(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+  }
+
+
+  let message =
+    "Hello KYVOR DESIGNS!%0A%0AI want to order:%0A";
+
+    let name = document.getElementById("customerName").value;
+let phoneNumber = document.getElementById("customerPhone").value;
+let address = document.getElementById("customerAddress").value;
+
+if(name === "" || phoneNumber === "" || address === ""){
+  alert("Please fill all order details.");
+  return;
+}
+
+if(name === "" || phoneNumber === "" || address === ""){
+  alert("Please fill all order details.");
+  return;
+}
+
+if(!/^[0-9]{10}$/.test(phoneNumber)){
+  alert("Please enter a valid 10-digit mobile number.");
+  return;
+}
+
+message +=
+  "%0AName: " + encodeURIComponent(name) +
+  "%0AMobile: " + encodeURIComponent(phoneNumber) +
+  "%0AAddress: " + encodeURIComponent(address) +
+  "%0A";
+
+message +=
+  "%0AName: " + encodeURIComponent(name) +
+  "%0AMobile: " + encodeURIComponent(phoneNumber) +
+  "%0AAddress: " + encodeURIComponent(address) +
+  "%0A";
+
+
+  cart.forEach(item => {
+
+    message +=
+      item.name +
+      " | Size: " +
+      item.size +
+      " | Qty: " +
+      item.quantity +
+      " | ₹" +
+      (item.price * item.quantity) +
+      "%0A";
+
+  });
+
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.price * item.quantity,
+      0
+    );
+
+
+  message +=
+    "%0ATotal: ₹" +
+    total +
+    "%0A%0AName:%0AAddress:";
+
+
+  const phone =
+    "919236658097";
+
+
+  window.open(
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    message,
+    "_blank"
+  );
+
+}
+
+</script>
+
+<section class="section" id="contact">
+
+  <h2>CONTACT KYVOR</h2>
+
+  <p style="color:#666; line-height:1.7; max-width:600px;">
+    Have a question about our products, sizes or orders?
+    Get in touch with KYVOR DESIGNS.
+  </p>
+
+  <a
+    href="https://wa.me/919236658097"
+    target="_blank"
+    class="shop-btn">
+    CHAT ON WHATSAPP
+  </a>
+
+</section>
+
+<section class="section" id="faq">
+
+  <h2>FREQUENTLY ASKED QUESTIONS</h2>
+
+  <div style="max-width:800px; margin:auto;">
+
+    <details style="background:#fff; border:1px solid #e5e5e5; border-radius:10px; padding:18px; margin-bottom:12px;">
+      <summary style="font-weight:bold; cursor:pointer;">
+        What sizes are available?
+      </summary>
+      <p style="color:#666; margin-top:12px; line-height:1.6;">
+        Available sizes are mentioned on each product page.
+      </p>
+    </details>
+
+    <details style="background:#fff; border:1px solid #e5e5e5; border-radius:10px; padding:18px; margin-bottom:12px;">
+      <summary style="font-weight:bold; cursor:pointer;">
+        How can I place an order?
+      </summary>
+      <p style="color:#666; margin-top:12px; line-height:1.6;">
+        Add your product to the cart and click "Order on WhatsApp" to place your order.
+      </p>
+    </details>
+
+    <details style="background:#fff; border:1px solid #e5e5e5; border-radius:10px; padding:18px; margin-bottom:12px;">
+      <summary style="font-weight:bold; cursor:pointer;">
+        How can I contact KYVOR DESIGNS?
+      </summary>
+      <p style="color:#666; margin-top:12px; line-height:1.6;">
+        You can contact us directly through WhatsApp from the Contact section.
+      </p>
+    </details>
+
+  </div>
+
+</section>
+
+<section class="section" id="policy">
+
+  <h2>RETURN & EXCHANGE POLICY</h2>
+
+  <p style="color:#666; line-height:1.8; max-width:800px;">
+    All KYVOR DESIGNS products are sold on a no return and no exchange basis.
+    Please carefully check the product details, available sizes and other
+    information before placing your order.
+  </p>
+
+  <p style="color:#666; line-height:1.8; max-width:800px; margin-top:15px;">
+    If you receive a damaged or incorrect product, please contact KYVOR DESIGNS
+    through WhatsApp as soon as possible with your order details.
+  </p>
+
+</section>
+
+<section class="section" id="privacy">
+
+  <h2>PRIVACY POLICY</h2>
+
+  <p style="color:#666; line-height:1.8; max-width:800px;">
+    KYVOR DESIGNS respects your privacy. Information shared while placing
+    an order, such as your name, mobile number and delivery address, is used
+    only for processing and delivering your order.
+  </p>
+
+  <p style="color:#666; line-height:1.8; max-width:800px; margin-top:15px;">
+    We do not sell or share your personal information for unrelated purposes.
+    By placing an order, you agree to provide accurate information required
+    to process your order.
+  </p>
+
+</section>
+
+<section class="section" id="terms">
+
+  <h2>TERMS & CONDITIONS</h2>
+
+  <p style="color:#666; line-height:1.8; max-width:800px;">
+    By placing an order with KYVOR DESIGNS, you agree to provide
+    accurate name, mobile number, delivery address and other required
+    order information.
+  </p>
+
+  <p style="color:#666; line-height:1.8; max-width:800px; margin-top:15px;">
+    Product prices, designs, sizes and availability may be updated
+    from time to time. An order is processed based on the details
+    available at the time of placing the order.
+  </p>
+
+  <p style="color:#666; line-height:1.8; max-width:800px; margin-top:15px;">
+    By placing an order, you agree to KYVOR DESIGNS's
+    Return & Exchange Policy and Privacy Policy.
+  </p>
+
+</section>
+
+</body>
+</html>
