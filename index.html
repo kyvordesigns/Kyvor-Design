@@ -310,14 +310,15 @@
     <!-- Yeh naya dropdown yahan sabse pehle daal do -->
     <div class="form-group">
         <label class="form-label">Select Item Type</label>
-        <select class="form-select" id="itemType" required>
-            <option value="T-Shirt">T-Shirt</option>
+        <select class="form-select" id="itemType" onchange="toggleFormFields()">
+             <option value="T-Shirt">T-Shirt</option>
             <option value="Mug">Mug</option>
             <option value="Keychain">Keychain</option>
         </select>
     </div>
 
     <div class="form-group">
+        <div id="tshirtOptions">
         <label class="form-label">Print Placement (Print Kaha Hoga?)</label>
         <!-- Baaki purana code waise hi rahega -->
                     <div class="form-grid">
@@ -364,7 +365,29 @@
                             <input type="text" class="form-input" id="customDetails" placeholder="e.g. Anime graphic, Logo, Photo, High Density DTF" required>
                         </div>
                     </div>
+<!-- MUG SPECIFIC OPTIONS -->
+    <div id="mugOptions" style="display: none; margin-top: 16px;">
+        <div class="form-group">
+            <label class="form-label">Select Mug Type</label>
+            <select class="form-select" id="mugType">
+                <option value="Glossy White Mug">Glossy White Mug</option>
+                <option value="Magic Mug (Black)">Magic Mug (Black)</option>
+                <option value="Heart Handle Mug">Heart Handle Mug</option>
+            </select>
+        </div>
+    </div>
 
+    <!-- KEYCHAIN SPECIFIC OPTIONS -->
+    <div id="keychainOptions" style="display: none; margin-top: 16px;">
+        <div class="form-group">
+            <label class="form-label">Select Keychain Shape</label>
+            <select class="form-select" id="keychainShape">
+                <option value="Acrylic Square">Acrylic Square</option>
+                <option value="Metal Circle">Metal Circle</option>
+                <option value="Wooden Custom Cut">Wooden Custom Cut</option>
+            </select>
+        </div>
+    </div>
                     <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
                         <button type="submit" class="btn-gold" style="flex: 1;"><i class="fa-brands fa-whatsapp"></i> Submit Custom Order On WhatsApp</button>
                         <a href="https://wa.me/919236658097?text=Hello%20KYVOR!%20I%20have%20questions%20regarding%20custom%20printing." target="_blank" class="btn-outline" style="flex: 0.8; text-align: center;"><i class="fa-solid fa-comments"></i> Contact For More Info</a>
@@ -788,6 +811,26 @@
     const buttons = button.parentElement.querySelectorAll('.size-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
+}
+        function toggleFormFields() {
+    const selectedType = document.getElementById('itemType').value;
+    const tshirtDiv = document.getElementById('tshirtOptions');
+    const mugDiv = document.getElementById('mugOptions');
+    const keychainDiv = document.getElementById('keychainOptions');
+
+    // Sabhi ko pehle chupa do
+    tshirtDiv.style.display = 'none';
+    mugDiv.style.display = 'none';
+    keychainDiv.style.display = 'none';
+
+    // Jo select kiya hai sirf wahi dikhega
+    if (selectedType === 'T-Shirt') {
+        tshirtDiv.style.display = 'block';
+    } else if (selectedType === 'Mug') {
+        mugDiv.style.display = 'block';
+    } else if (selectedType === 'Keychain') {
+        keychainDiv.style.display = 'block';
+    }
 }
     </script>
 </body>
