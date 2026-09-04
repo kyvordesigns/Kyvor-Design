@@ -80,7 +80,7 @@
         .action-icon {
             font-size: 1.1rem; color: var(--text-main); background: var(--bg-light);
             border: 1px solid var(--border-subtle); border-radius: 50%; width: 42px; height: 42px;
-            display: flex; align-items: center; justify-content: center; position: relative;
+            display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer;
         }
         .badge-count { position: absolute; top: -4px; right: -4px; background: var(--accent-gold); color: #FFF; font-size: 0.65rem; font-weight: 800; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
@@ -89,7 +89,7 @@
         .hero-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--text-main); font-weight: 800; }
 
         .section-padding { padding: 80px 0; border-top: 1px solid var(--border-subtle); }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px; margin-top: 25px; }
         .product-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; position: relative; transition: var(--transition); box-shadow: var(--shadow-card); }
         .product-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); box-shadow: var(--shadow-soft); }
         .product-thumb { height: 380px; background: #F1F5F9; position: relative; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -104,7 +104,6 @@
 
         .custom-section { background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); padding: 40px; box-shadow: var(--shadow-soft); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
         .form-group { margin-bottom: 18px; }
         .form-label { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted); }
         .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 16px; background: var(--bg-light); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-main); font-family: var(--font-body); }
@@ -116,21 +115,28 @@
         .review-user { font-weight: 700; font-size: 0.9rem; margin-bottom: 2px; display: flex; align-items: center; justify-content: space-between; }
         .verified-badge { color: #16A34A; font-size: 0.7rem; font-weight: 700; }
 
-        .cart-drawer { position: fixed; top: 0; right: -450px; width: 100%; max-width: 420px; height: 100%; background: #FFFFFF; border-left: 1px solid var(--border-subtle); z-index: 200; transition: right 0.4s ease; display: flex; flex-direction: column; padding: 24px; box-shadow: -10px 0 30px rgba(0,0,0,0.08); }
+        .contact-box { background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+        /* Cart Drawer & Checkout Styling */
+        .cart-drawer { position: fixed; top: 0; right: -480px; width: 100%; max-width: 460px; height: 100%; background: #FFFFFF; border-left: 1px solid var(--border-subtle); z-index: 200; transition: right 0.4s ease; display: flex; flex-direction: column; padding: 24px; box-shadow: -10px 0 30px rgba(0,0,0,0.08); overflow-y: auto; }
         .cart-drawer.open { right: 0; }
-        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 15px; }
-        .cart-body { flex-grow: 1; overflow-y: auto; padding: 20px 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 15px; margin-bottom: 15px; }
         .cart-item { display: flex; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 16px; align-items: center; }
         .cart-item img { width: 60px; height: 75px; object-fit: contain; background: #F1F5F9; border-radius: 4px; }
         .cart-item-info { flex: 1; }
-        .cart-footer { border-top: 1px solid var(--border-subtle); padding-top: 15px; }
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
         .modal-overlay.open { display: flex; }
-        .modal-box { background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 32px; border-radius: var(--radius-md); max-width: 550px; width: 100%; position: relative; box-shadow: var(--shadow-soft); }
+        .modal-box { background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 32px; border-radius: var(--radius-md); max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: var(--shadow-soft); }
         .modal-close { position: absolute; top: 20px; right: 20px; font-size: 1.4rem; color: var(--text-muted); cursor: pointer; }
 
-        @media (max-width: 992px) { .hero-grid, .form-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        footer { background: #0F172A; color: #94A3B8; padding: 50px 0 25px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .footer-col h4 { color: #FFFFFF; font-size: 1rem; margin-bottom: 16px; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col a:hover { color: #F59E0B; }
+
+        @media (max-width: 992px) { .hero-grid, .form-grid, .contact-box { grid-template-columns: 1fr; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
@@ -149,11 +155,12 @@
                     <li><a href="#shop">Shop</a></li>
                     <li><a href="#custom">Custom Print</a></li>
                     <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="action-icon" onclick="toggleCart()">
                         <i class="fa-solid fa-bag-shopping"></i>
-                        <span class="badge-count" id="cartCount">0</span>
+                        <span class="badge-count" id="cartBadgeCount">0</span>
                     </button>
                 </div>
             </div>
@@ -179,11 +186,14 @@
         </div>
     </section>
 
+    <!-- SHOP / CATALOG SECTION -->
     <section class="section-padding" id="shop">
         <div class="container">
-            <div style="margin-bottom: 40px; text-align: center;">
-                <span class="badge-gold">Featured Collection</span>
-                <h2 style="font-size: 2.3rem; margin-top: 8px;">T-SHIRT CATALOG</h2>
+            
+            <div style="margin-bottom: 20px; text-align: center;">
+                <span class="badge-gold">Exclusive Apparel</span>
+                <h2 style="font-size: 2.3rem; margin-top: 8px;">OUR T-SHIRT COLLECTION</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium 240 GSM oversized streetwear tees.</p>
             </div>
 
             <div class="products-grid">
@@ -196,34 +206,36 @@
                         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                         
                         <div class="selector-wrap">
-                            <span class="selector-label">Available Sizes:</span>
-                            <div class="btn-group" id="productSizeGroup">
-                                <button class="size-btn active" onclick="selectCardOption(this, 'size')">M</button>
-                                <button class="size-btn" onclick="selectCardOption(this, 'size')">L</button>
-                                <button class="size-btn" onclick="selectCardOption(this, 'size')">XL</button>
+                            <span class="selector-label">Available Sizes (XL & XXL Only):</span>
+                            <div class="btn-group" id="teeSizeGroup">
+                                <button class="size-btn active" onclick="selectOption(this, 'teeSize')">XL</button>
+                                <button class="size-btn" onclick="selectOption(this, 'teeSize')">XXL</button>
                             </div>
                         </div>
 
                         <div class="selector-wrap">
                             <span class="selector-label">Select Colour:</span>
-                            <div class="btn-group" id="productColorGroup">
-                                <button class="color-btn active" onclick="selectCardOption(this, 'color')">Mustard Yellow</button>
-                                <button class="color-btn" onclick="selectCardOption(this, 'color')">Black</button>
-                                <button class="color-btn" onclick="selectCardOption(this, 'color')">White</button>
+                            <div class="btn-group" id="teeColorGroup">
+                                <button class="color-btn active" onclick="selectOption(this, 'teeColor')">Navy Blue</button>
+                                <button class="color-btn" onclick="selectOption(this, 'teeColor')">Parrot Green</button>
+                                <button class="color-btn" onclick="selectOption(this, 'teeColor')">Black</button>
+                                <button class="color-btn" onclick="selectOption(this, 'teeColor')">Mustard Yellow</button>
                             </div>
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                             <span style="font-size: 1.4rem; font-weight: 800; color: var(--accent-gold);">₹400</span>
-                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addCatalogToCart('Kyvor Majestic Deer Tee', 400)"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addToCart('Kyvor Majestic Deer Tee', 400)"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- MUGS -->
             <div style="margin: 60px 0 20px; text-align: center;">
-                <span class="badge-gold">Personalized</span>
-                <h2 style="font-size: 2.3rem; margin-top: 8px;">CUSTOMIZE MUGS</h2>
+                <span class="badge-gold">Personalized Gifting</span>
+                <h2 style="font-size: 2.3rem; margin-top: 8px;">CUSTOM PHOTO MUGS</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">High-grade ceramic glossy finish mugs for your loved ones.</p>
             </div>
             <div class="products-grid">
                 <div class="product-card">
@@ -235,15 +247,17 @@
                         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">High-grade ceramic glossy finish mug.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                             <span style="font-size: 1.4rem; font-weight: 700; color: var(--accent-gold);">₹250</span>
-                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addCatalogToCart('Custom Photo Mug', 250)">ADD TO BAG</button>
+                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addToCart('Custom Photo Mug', 250)">ADD TO BAG</button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- KEYCHAINS -->
             <div style="margin: 60px 0 20px; text-align: center;">
                 <span class="badge-gold">Accessories</span>
-                <h2 style="font-size: 2.3rem; margin-top: 8px;">KEYCHAINS</h2>
+                <h2 style="font-size: 2.3rem; margin-top: 8px;">CUSTOM METAL KEYCHAINS</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Sleek, laser-engraved durable metal keychains.</p>
             </div>
             <div class="products-grid">
                 <div class="product-card">
@@ -255,7 +269,7 @@
                         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Durable engraved metal keychain.</p>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
                             <span style="font-size: 1.4rem; font-weight: 700; color: var(--accent-gold);">₹199</span>
-                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addCatalogToCart('Custom Metal Keychain', 199)">ADD TO BAG</button>
+                            <button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="addToCart('Custom Metal Keychain', 199)">ADD TO BAG</button>
                         </div>
                     </div>
                 </div>
@@ -263,157 +277,227 @@
         </div>
     </section>
 
+    <!-- CUSTOM STUDIO SECTION -->
     <section class="section-padding" id="custom" style="background: #FFFFFF;">
         <div class="container">
             <div class="custom-section">
                 <div style="text-align: center; max-width: 650px; margin: 0 auto 30px;">
-                    <span class="badge-gold">Custom Studio</span>
-                    <h2 style="font-size: 2.2rem; margin: 10px 0;">CUSTOM PRINT ORDER</h2>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Apna manpasand design, photo ya text print karwayen. Details bharein aur seedha WhatsApp par order place karein.</p>
+                    <span class="badge-gold">DTF Print Studio</span>
+                    <h2 style="font-size: 2.3rem; margin-top: 8px;">CREATE YOUR CUSTOM APPAREL</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Upload your artwork or provide your design instructions for custom DTF printing.</p>
                 </div>
-
-                <form onsubmit="handleCustomOrderSubmit(event)">
+                <form id="customForm" onsubmit="handleCustomOrder(event)">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label">Customer Name</label>
-                            <input type="text" class="form-input" id="customName" placeholder="Enter your full name" required>
+                            <label class="form-label">Your Name</label>
+                            <input type="text" id="customName" class="form-input" required placeholder="Enter full name">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">WhatsApp Mobile Number</label>
-                            <input type="tel" class="form-input" id="customPhone" maxlength="10" placeholder="e.g. 9236658097" required>
+                            <label class="form-label">Phone Number (10 Digits)</label>
+                            <input type="tel" id="customPhone" class="form-input" maxlength="10" required placeholder="9876543210">
+                            <p id="customPhoneError" class="text-red-500 text-xs mt-1" style="color: #EF4444; display:none;">⚠️ Please enter an exact 10-digit valid phone number.</p>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Complete Shipping Address</label>
-                        <input type="text" class="form-input" id="customAddress" placeholder="House No, Street, City, Pincode" required>
-                    </div>
-
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label">Select Item Type</label>
-                            <select class="form-select" id="itemType" onchange="toggleItemOptions()" required>
-                                <option value="T-Shirt">T-Shirt</option>
-                                <option value="Mug">Mug</option>
-                                <option value="Keychain">Keychain</option>
+                            <label class="form-label">Apparel Type</label>
+                            <select id="customItem" class="form-select">
+                                <option value="Custom 240 GSM Oversized Tee - ₹499">Oversized Tee (₹499)</option>
+                                <option value="Custom Hoodie - ₹899">Heavyweight Hoodie (₹899)</option>
+                                <option value="Custom DTF Print Sheet - ₹350">DTF Print Sheet (₹350)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Print Placement</label>
-                            <select class="form-select" id="customPlacement" required>
-                                <option value="Front Center Oversized">Front Center (Oversized Print)</option>
-                                <option value="Back Oversized Print">Back (Oversized Graphic)</option>
-                                <option value="Front Small Chest Logo">Front Small Chest Logo</option>
-                                <option value="Both Front & Back Print">Both Front & Back Print</option>
+                            <label class="form-label">Size</label>
+                            <select id="customSize" class="form-select">
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="L">L</option>
                             </select>
                         </div>
                     </div>
-
-                    <div class="form-grid" id="tshirtOptionsRow">
-                        <div class="form-group">
-                            <label class="form-label">Select Size</label>
-                            <select class="form-select" id="customSize">
-                                <option value="S">S - Small</option>
-                                <option value="M" selected>M - Medium</option>
-                                <option value="L">L - Large</option>
-                                <option value="XL">XL - Extra Large</option>
-                                <option value="XXL">XXL - Double Extra Large</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Base Colour</label>
-                            <select class="form-select" id="customColor">
-                                <option value="Black">Black</option>
-                                <option value="White">White</option>
-                                <option value="Mustard Yellow">Mustard Yellow</option>
-                                <option value="Navy Blue">Navy Blue</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <label class="form-label">Print Description / Requirements</label>
-                        <input type="text" class="form-input" id="customDetails" placeholder="e.g. Anime graphic, Custom Text or Logo details" required>
+                        <label class="form-label">Design Details / Instructions / Image URL</label>
+                        <textarea id="customDesc" class="form-textarea" rows="3" required placeholder="Describe what you want printed or paste your design link..."></textarea>
                     </div>
-
-                    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-                        <button type="submit" class="btn-gold" style="flex: 1;"><i class="fa-brands fa-whatsapp"></i> Submit Custom Order On WhatsApp</button>
-                    </div>
+                    <button type="submit" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Submit Custom Inquiry</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- REVIEWS SECTION -->
     <section class="section-padding" id="reviews">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <span class="badge-gold">Testimonials</span>
-                <h2 style="font-size: 2.2rem; margin-top: 8px;">CUSTOMER REVIEWS</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 4px;">4.9 / 5 Overall Rating based on verified customer feedback.</p>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto 30px;">
+                <span class="badge-gold">Customer Trust</span>
+                <h2 style="font-size: 2.3rem; margin-top: 8px;">LOVED BY STREETWEAR HEADS</h2>
             </div>
-
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <div class="review-user">Aman Sharma <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">"Deer print wali mustard yellow tee order ki thi, fabric 240 GSM damdaar hai aur print quality bilkul top notch!"</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">"The 240 GSM quality is insane! Print didn't fade even after multiple washes. Absolute value."</p>
+                    <div class="review-user"><span>Aman V. <span class="verified-badge">✔ Verified</span></span><span style="font-size: 0.75rem; color: var(--text-dim);">Kanpur</span></div>
                 </div>
                 <div class="review-card">
                     <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <div class="review-user">Rohan Verma <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">"Custom print karwaya tha oversized XXL size me. WhatsApp support bohot quick hai aur delivery 4 din me aa gayi."</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <div class="review-user">Rahul Patel <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">"Best streetwear brand in Kanpur! Drop shoulder fitting ekdum aesthetic hai aur packaging superb thi."</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">"Ordered a custom photo mug and metal keychain for a birthday. Super fast delivery and premium finish!"</p>
+                    <div class="review-user"><span>Priya S. <span class="verified-badge">✔ Verified</span></span><span style="font-size: 0.75rem; color: var(--text-dim);">Lucknow</span></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
+    <section class="section-padding" id="contact" style="background: #FFFFFF;">
+        <div class="container">
+            <div class="contact-box">
+                <div>
+                    <span class="badge-gold">Get In Touch</span>
+                    <h2 style="font-size: 2rem; margin-top: 8px; margin-bottom: 16px;">STUDIO & SUPPORT</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Have bulk inquiries or custom requirements? Drop us a message or visit our studio in Kanpur.</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-muted);">
+                        <li><i class="fa-solid fa-location-dot" style="color: var(--accent-gold); width: 20px;"></i> Kanpur, Uttar Pradesh, India</li>
+                        <li><i class="fa-solid fa-phone" style="color: var(--accent-gold); width: 20px;"></i> +91 98765 43210</li>
+                        <li><i class="fa-solid fa-envelope" style="color: var(--accent-gold); width: 20px;"></i> support@kyvordesigns.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <form onsubmit="handleContact(event)">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-input" required placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email or Phone</label>
+                            <input type="text" class="form-input" required placeholder="Contact info">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-textarea" rows="3" required placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold" style="width: auto;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART & CHECKOUT DRAWER -->
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3 style="font-size: 1.2rem;">Your Shopping Bag</h3>
+            <h3 style="font-size: 1.2rem;">Your Cart & Checkout</h3>
             <button onclick="toggleCart()" style="font-size: 1.2rem; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="cart-body" id="cartItemsList">
-            <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty</p>
-        </div>
-        <div class="cart-footer">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700;">
-                <span>Total:</span>
-                <span id="cartTotalPrice">₹0</span>
+        <div style="flex-grow: 1; overflow-y: auto;">
+            <div id="cartItemsContainer">
+                <p style="color: var(--text-muted); text-align: center; padding: 30px 0;">Your cart is empty.</p>
             </div>
-            <button class="btn-gold" onclick="checkoutCart()">Proceed To WhatsApp Checkout</button>
+        </div>
+        <div id="checkoutFormSection" style="border-top: 1px solid var(--border-subtle); padding-top: 20px; display: none;">
+            <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.1rem; margin-bottom: 16px;">
+                <span>Total:</span>
+                <span id="cartTotalPrice" style="color: var(--accent-gold);">₹0</span>
+            </div>
+
+            <form id="checkoutForm" onsubmit="handleWhatsAppCheckout(event)">
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="chkName" class="form-input" required placeholder="Enter full name">
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Delivery Address</label>
+                    <textarea id="chkAddress" class="form-textarea" rows="2" required placeholder="House No, Street, City, Pincode"></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <label class="form-label">Phone Number (10 Digits)</label>
+                    <input type="tel" id="chkPhone" class="form-input" maxlength="10" required placeholder="9876543210">
+                    <p id="chkPhoneError" style="color: #EF4444; font-size: 0.75rem; margin-top: 4px; display: none;">⚠️ Please enter an exact 10-digit valid phone number.</p>
+                </div>
+
+                <!-- QR CODE PAYMENT SECTION -->
+                <div style="margin: 20px 0; text-align: center; border: 1px dashed var(--border-gold); padding: 16px; border-radius: var(--radius-sm); background: #FFFBEB;">
+                    <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: var(--accent-gold);">Scan QR to Pay via UPI</h4>
+                    <img src="qr.jpeg" alt="Payment QR" style="width: 140px; height: 140px; object-fit: contain; margin: 0 auto 8px; background: #FFF; border-radius: 4px;" onerror="this.src='https://via.placeholder.com/140?text=qr.jpeg+Missing'">
+                    <p style="font-size: 0.7rem; color: var(--text-muted);">Scan with GPay, PhonePe, or Paytm</p>
+                </div>
+
+                <!-- UTR / TRANSACTION ID INPUT -->
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label class="form-label">UTR / Transaction ID / Reference No.</label>
+                    <input type="text" id="chkUtr" class="form-input" required placeholder="Enter 12-digit UTR after payment">
+                    <p id="chkUtrError" style="color: #EF4444; font-size: 0.75rem; margin-top: 4px; display: none;">⚠️ Please enter a valid real UTR / transaction number.</p>
+                </div>
+
+                <button type="submit" class="btn-gold">Confirm Order & Send to WhatsApp 🚀</button>
+            </form>
         </div>
     </div>
 
+    <!-- SIZE CHART MODAL -->
     <div class="modal-overlay" id="sizeGuideModal">
         <div class="modal-box">
             <span class="modal-close" onclick="closeModal('sizeGuideModal')">&times;</span>
             <h3 style="margin-bottom: 15px;">Oversized Fit Size Chart</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Our tees are tailored with a relaxed streetwear oversized fit.</p>
-            <table style="width: 100%; text-align: left; font-size: 0.85rem; border-collapse: collapse;">
-                <tr style="border-bottom: 1px solid var(--border-subtle);"><th style="padding: 8px;">Size</th><th>Chest (Inches)</th><th>Length (Inches)</th></tr>
-                <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 8px;">S</td><td>42"</td><td>28"</td></tr>
-                <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 8px;">M</td><td>44"</td><td>29"</td></tr>
-                <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 8px;">L</td><td>46"</td><td>30"</td></tr>
-                <tr><td style="padding: 8px;">XL</td><td>48"</td><td>31"</td></tr>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Our tees feature an authentic streetwear oversized drop-shoulder boxy fit.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+                <thead>
+                    <tr style="background: var(--bg-elevated); border-bottom: 1px solid var(--border-subtle);">
+                        <th style="padding: 10px;">Size</th>
+                        <th style="padding: 10px;">Chest (Inches)</th>
+                        <th style="padding: 10px;">Length (Inches)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 10px; font-weight: 700;">XL</td><td style="padding: 10px;">46"</td><td style="padding: 10px;">30"</td></tr>
+                    <tr><td style="padding: 10px; font-weight: 700;">XXL</td><td style="padding: 10px;">48"</td><td style="padding: 10px;">31"</td></tr>
+                </tbody>
             </table>
         </div>
     </div>
 
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="brand-font">KYVOR DESIGNS</h4>
+                    <p style="font-size: 0.85rem;">Wear Your Own Standard. Heavyweight oversized apparel and custom DTF studio.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#shop">Shop Collection</a></li>
+                        <li><a href="#custom">Custom Studio</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Shipping & Exchange</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid #1E293B; padding-top: 20px; font-size: 0.8rem;">
+                &copy; 2026 KYVOR DESIGNS. Handcrafted with passion in Kanpur.
+            </div>
+        </div>
+    </footer>
+
     <script>
         let cart = [];
-        let selectedSize = 'M';
-        let selectedColor = 'Mustard Yellow';
+        let selectedTeeSize = 'XL';
+        let selectedTeeColor = 'Navy Blue';
 
-        function selectCardOption(btn, type) {
-            btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        function selectOption(btn, type) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            if(type === 'size') selectedSize = btn.innerText;
-            if(type === 'color') selectedColor = btn.innerText;
+            if(type === 'teeSize') selectedTeeSize = btn.innerText;
+            if(type === 'teeColor') selectedTeeColor = btn.innerText;
         }
 
         function toggleCart() {
@@ -433,92 +517,122 @@
             alert("Promo code KYVOR10 copied to clipboard!");
         }
 
-        function addCatalogToCart(name, price) {
-            cart.push({ name: `${name} (${selectedSize} / ${selectedColor})`, price: price });
+        function addToCart(name, price) {
+            let itemName = name;
+            if(name.includes('Deer Tee')) {
+                itemName += ` (${selectedTeeSize} / ${selectedTeeColor})`;
+            }
+            const existing = cart.find(item => item.name === itemName);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name: itemName, price: price, qty: 1 });
+            }
             updateCartUI();
             toggleCart();
         }
 
         function updateCartUI() {
-            const list = document.getElementById('cartItemsList');
-            const count = document.getElementById('cartCount');
-            const totalElem = document.getElementById('cartTotalPrice');
+            const container = document.getElementById('cartItemsContainer');
+            const checkoutSec = document.getElementById('checkoutFormSection');
+            const badge = document.getElementById('cartBadgeCount');
             
-            count.innerText = cart.length;
+            let totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalCount;
+
             if(cart.length === 0) {
-                list.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Your bag is empty</p>';
-                totalElem.innerText = '₹0';
+                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 30px 0;">Your cart is empty.</p>';
+                checkoutSec.style.display = 'none';
                 return;
             }
 
             let html = '';
-            let total = 0;
+            let totalPrice = 0;
             cart.forEach((item, index) => {
-                total += item.price;
-                html += `<div class="cart-item">
-                    <div class="cart-item-info">
-                        <h4 style="font-size: 0.85rem; font-weight: 700;">${item.name}</h4>
-                        <span style="color: var(--accent-gold); font-weight: 800;">₹${item.price}</span>
+                totalPrice += item.price * item.qty;
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4 style="font-size: 0.85rem; font-weight: 700;">${item.name}</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">₹${item.price} x ${item.qty}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="color: #EF4444; font-size: 0.9rem;"><i class="fa-solid fa-trash"></i></button>
                     </div>
-                    <button onclick="removeItem(${index})" style="color: var(--text-dim); cursor: pointer;"><i class="fa-solid fa-trash"></i></button>
-                </div>`;
+                `;
             });
-            list.innerHTML = html;
-            totalElem.innerText = `₹${total}`;
+            container.innerHTML = html;
+            document.getElementById('cartTotalPrice').innerText = '₹' + totalPrice;
+            checkoutSec.style.display = 'block';
         }
 
-        function removeItem(index) {
+        function removeFromCart(index) {
             cart.splice(index, 1);
             updateCartUI();
         }
 
-        function checkoutCart() {
-            if(cart.length === 0) return alert("Your bag is empty!");
-            let text = "Hello KYVOR DESIGNS! I want to order the following items:%0A";
-            let total = 0;
-            cart.forEach(item => {
-                text += `- ${item.name} : ₹${item.price}%0A`;
-                total += item.price;
-            });
-            text += `%0ATotal Amount: ₹${total}`;
-            window.open(`https://wa.me/919236658097?text=${text}`, '_blank');
-        }
-
-        function toggleItemOptions() {
-            const itemType = document.getElementById('itemType').value;
-            const row = document.getElementById('tshirtOptionsRow');
-            if(itemType !== 'T-Shirt') {
-                row.style.display = 'none';
-            } else {
-                row.style.display = 'grid';
-            }
-        }
-
-        function handleCustomOrderSubmit(event) {
+        function handleCustomOrder(event) {
             event.preventDefault();
-            const name = document.getElementById('customName').value;
-            const phone = document.getElementById('customPhone').value;
-            const address = document.getElementById('customAddress').value;
-            const itemType = document.getElementById('itemType').value;
-            const placement = document.getElementById('customPlacement').value;
-            const details = document.getElementById('customDetails').value;
+            const name = document.getElementById('customName').value.trim();
+            const phone = document.getElementById('customPhone').value.trim();
+            const item = document.getElementById('customItem').value;
+            const size = document.getElementById('customSize').value;
+            const desc = document.getElementById('customDesc').value.trim();
+            const phoneErr = document.getElementById('customPhoneError');
 
-            let msg = `*NEW CUSTOM PRINT ORDER*%0A` +
-                      `👤 Name: ${name}%0A` +
-                      `📱 Phone: ${phone}%0A` +
-                      `📍 Address: ${address}%0A` +
-                      `🛍️ Item: ${itemType}%0A` +
-                      `📐 Placement: ${placement}%0A`;
+            if(phone.length !== 10 || isNaN(phone)) {
+                phoneErr.style.display = 'block';
+                return;
+            }
+            phoneErr.style.display = 'none';
 
-            if(itemType === 'T-Shirt') {
-                const size = document.getElementById('customSize').value;
-                const color = document.getElementById('customColor').value;
-                msg += `👕 Size: ${size}%0A🎨 Color: ${color}%0A`;
+            const ownerWhatsApp = "919876543210"; // Replace with your number
+            const msg = `🎨 *New Custom Print Inquiry!*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n👕 *Item:* ${item} (${size})\n📝 *Details:* ${desc}`;
+            window.open(`https://wa.me/${ownerWhatsApp}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function handleWhatsAppCheckout(event) {
+            event.preventDefault();
+            const name = document.getElementById('chkName').value.trim();
+            const address = document.getElementById('chkAddress').value.trim();
+            const phone = document.getElementById('chkPhone').value.trim();
+            const utr = document.getElementById('chkUtr').value.trim();
+
+            const phoneErr = document.getElementById('chkPhoneError');
+            const utrErr = document.getElementById('chkUtrError');
+            let valid = true;
+
+            // 10-digit Phone Validation Check
+            if(phone.length !== 10 || isNaN(phone)) {
+                phoneErr.style.display = 'block';
+                valid = false;
+            } else {
+                phoneErr.style.display = 'none';
             }
 
-            msg += `📝 Details: ${details}`;
+            // Real UTR Validation Check (minimum length check)
+            if(utr.length < 8) {
+                utrErr.style.display = 'block';
+                valid = false;
+            } else {
+                utrErr.style.display = 'none';
+            }
 
-            window.open(`https://wa.me/919236658097?text=${msg}`, '_blank');
+            if(!valid) return;
+
+            let orderSummary = cart.map(i => `- ${i.name} (Qty: ${i.qty}) [₹${i.price * i.qty}]`).join('\n');
+            let totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+            const ownerWhatsApp = "919876543210"; // Replace with your WhatsApp number
+            const message = `🛍️ *New Paid Order Received!*\n\n` +
+                            `👤 *Name:* ${name}\n` +
+                            `📞 *Phone:* ${phone}\n` +
+                            `🏠 *Address:* ${address}\n\n` +
+                            `📦 *Order Items:*\n${orderSummary}\n\n` +
+                            `💰 *Total Paid:* ₹${totalPrice}\n` +
+                            `💳 *UTR / Txn ID:* ${utr}\n\n` +
+                            `Status: Payment claimed by customer. Please verify bank transaction.`;
+
+            window.open(`https://wa.me/${ownerWhatsApp}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
