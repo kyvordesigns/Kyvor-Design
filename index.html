@@ -14,17 +14,17 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
             color: #333;
         }
 
-        /* Top Announcement Bar (Bewakoof style) */
+        /* Top Announcement Bar */
         .announcement-bar {
             background-color: #111;
             color: #fff;
             text-align: center;
             font-size: 12px;
-            padding: 8px 10px;
+            padding: 9px 10px;
             font-weight: bold;
             letter-spacing: 0.5px;
         }
@@ -66,7 +66,7 @@
         }
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 22px;
             align-items: center;
         }
         .nav-links a {
@@ -82,14 +82,14 @@
             color: #b85d33;
         }
 
-        /* Search Bar in Header */
+        /* Search Bar */
         .search-box {
             display: flex;
             align-items: center;
             background: #f4f4f4;
             border-radius: 4px;
             padding: 8px 12px;
-            width: 250px;
+            width: 240px;
             border: 1px solid #ddd;
         }
         .search-box input {
@@ -101,7 +101,7 @@
             margin-left: 8px;
         }
 
-        /* Icons Right */
+        /* Nav Icons */
         .nav-icons {
             display: flex;
             gap: 20px;
@@ -124,7 +124,7 @@
             font-weight: bold;
         }
 
-        /* Dropdown Menu */
+        /* Dropdown */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -157,16 +157,16 @@
             display: block;
         }
 
-        /* Page View Controller */
+        /* Page View Switcher */
         .page-section {
             display: none;
-            min-height: 80vh;
+            min-height: 75vh;
         }
         .page-section.active-page {
             display: block;
         }
 
-        /* Homepage Banner & Grid Styles */
+        /* Containers & Banners */
         .container {
             max-width: 1200px;
             margin: 30px auto;
@@ -191,7 +191,6 @@
             font-size: 38px;
             font-weight: 900;
             margin-bottom: 12px;
-            letter-spacing: 1px;
         }
         .hero-banner p {
             font-size: 15px;
@@ -209,13 +208,7 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(184, 93, 51, 0.3);
         }
-        .btn-main:hover {
-            opacity: 0.9;
-        }
-
-        /* Section Headings */
         .section-title {
             font-size: 22px;
             font-weight: 800;
@@ -226,7 +219,7 @@
             padding-left: 10px;
         }
 
-        /* Product Grid (Bewakoof Style) */
+        /* Product Grid */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -247,7 +240,7 @@
         }
         .product-img {
             width: 100%;
-            height: 280px;
+            height: 270px;
             background-color: #e5e5e5;
             display: flex;
             align-items: center;
@@ -319,7 +312,7 @@
             background: #b85d33;
         }
 
-        /* Form Card Layout (Exact Screenshots Style) */
+        /* Forms Layout (Step 1 & Step 2) */
         .form-card {
             max-width: 650px;
             margin: 40px auto;
@@ -382,7 +375,7 @@
         }
         .form-textarea {
             resize: vertical;
-            min-height: 110px;
+            min-height: 100px;
         }
         .helper-text {
             font-size: 11px;
@@ -407,11 +400,106 @@
         .btn-submit:hover {
             opacity: 0.9;
         }
+
+        /* Reviews List Styling */
+        .review-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #eaeaea;
+        }
+        .review-author {
+            font-weight: bold;
+            font-size: 14px;
+            color: #111;
+            margin-bottom: 5px;
+        }
+        .review-stars {
+            color: #f59e0b;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .review-text {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Policy Pages Styling */
+        .policy-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+        .policy-container h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #111;
+            text-transform: uppercase;
+        }
+        .policy-container p, .policy-container ul {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .policy-container ul {
+            padding-left: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-col h3 {
+            color: #fff;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Announcement Bar -->
+    <!-- Top Announcement Bar -->
     <div class="announcement-bar">
         🔥 BUY 2 GET 1 FREE on All Custom Orders! Use Code: <span>KYVOR3</span> 🔥
     </div>
@@ -426,7 +514,7 @@
 
             <div class="search-box">
                 <i class="fa-solid fa-search" style="color: #777; font-size: 13px;"></i>
-                <input type="text" placeholder="Search T-shirts, Mugs, Keychains...">
+                <input type="text" placeholder="Search t-shirts, mugs, keychains...">
             </div>
 
             <nav class="nav-links">
@@ -457,20 +545,17 @@
         </div>
     </header>
 
-    <!-- ================= 1. HOME SCREEN (BEWAKOOF STYLE) ================= -->
+    <!-- ================= 1. HOME SCREEN ================= -->
     <div id="home" class="page-section active-page">
         <div class="container">
-            <!-- Hero Banner -->
             <div class="hero-banner">
                 <h1>DESIGN YOUR OWN VIBE</h1>
-                <p>High-Density Oversized T-Shirts, Custom Mugs & Personalized Keychains Crafted Just For You.</p>
-                <button class="btn-main" onclick="showPage('tshirtForm')">Start Customizing Now</button>
+                <p>Heavyweight Oversized T-Shirts, Custom Mugs & Personalized Keychains Crafted For You.</p>
+                <button class="btn-main" onclick="showPage('tshirtForm')">Start Custom Order</button>
             </div>
 
-            <!-- Trending Collections Grid -->
             <div class="section-title">Trending Custom Merch</div>
             <div class="product-grid">
-                
                 <div class="product-card" onclick="showPage('tshirtForm')">
                     <div class="product-img">
                         <div class="badge-tag">Bestseller</div>
@@ -511,7 +596,7 @@
                         <span>Keychain Preview</span>
                     </div>
                     <div class="product-info">
-                        <div class="product-name">Custom Acrylic Spotify Keychain</div>
+                        <div class="product-name">Custom Spotify Acrylic Keychain</div>
                         <div class="product-desc">Scan Code & Play Your Song</div>
                         <div class="price-box">
                             <span class="current-price">₹199</span>
@@ -521,7 +606,6 @@
                         <button class="btn-card">Customize Now</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -534,7 +618,7 @@
                 <div class="product-card" onclick="showPage('tshirtForm')">
                     <div class="product-img"><span>Black Oversized Tee</span></div>
                     <div class="product-info">
-                        <div class="product-name">Custom Black Heavyweight Tee</div>
+                        <div class="product-name">Custom Heavyweight Tee</div>
                         <div class="price-box"><span class="current-price">₹499</span></div>
                         <button class="btn-card">Order Custom</button>
                     </div>
@@ -548,7 +632,7 @@
                     </div>
                 </div>
                 <div class="product-card" onclick="showPage('keychainForm')">
-                    <div class="product-img"><span>Name Tag Keychain</span></div>
+                    <div class="product-img"><span>Acrylic Name Keychain</span></div>
                     <div class="product-info">
                         <div class="product-name">Custom Acrylic Keychain</div>
                         <div class="price-box"><span class="current-price">₹199</span></div>
@@ -559,42 +643,38 @@
         </div>
     </div>
 
-    <!-- ================= 3. T-SHIRT CUSTOM ORDER (STEP 1 OF 2) ================= -->
+    <!-- ================= 3. T-SHIRT FORM (STEP 1 OF 2) ================= -->
     <div id="tshirtForm" class="page-section">
         <div class="form-card">
             <div class="step-badge">STEP 1 OF 2</div>
-            <div class="form-title">Shipping Details</div>
+            <div class="form-title">T-Shirt Shipping Details</div>
             <div class="form-subtitle">Fill in your details for custom T-shirt printing.</div>
 
             <div class="form-group">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" placeholder="Enter full name" required>
+                <input type="text" id="ts-name" class="form-input" placeholder="Enter full name" required>
             </div>
             <div class="form-group">
                 <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
-                <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
+                <input type="tel" id="ts-phone" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
                 <div class="helper-text">Must be exactly 10 numeric digits.</div>
             </div>
             <div class="form-group">
                 <label class="form-label">Complete Shipping Address</label>
-                <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
+                <input type="text" id="ts-address" class="form-input" placeholder="House No, Street, City, Pincode" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Print Placement</label>
-                <select class="form-select">
+                <select id="ts-placement" class="form-select">
                     <option>Front Center (Oversized Print)</option>
                     <option>Back (Oversized Graphic)</option>
                     <option>Front Small Chest Logo</option>
                     <option>Both Front & Back Print</option>
-                    <option>Sleeve Print</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Select T-Shirt Size</label>
-                <select class="form-select">
-                    <option>22 (Kids)</option>
-                    <option>24 (Kids)</option>
-                    <option>26 (Kids)</option>
+                <select id="ts-size" class="form-select">
                     <option>S - Small</option>
                     <option selected>M - Medium</option>
                     <option>L - Large</option>
@@ -603,26 +683,24 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Base T-Shirt Colour</label>
-                <select class="form-select">
+                <select id="ts-color" class="form-select">
                     <option>Black</option>
                     <option>White</option>
                     <option>Mustard Yellow</option>
-                    <option>Parrot Green</option>
                     <option>Navy Blue</option>
                     <option>Maroon</option>
-                    <option>Beige / Cream</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Print Description / Design Details</label>
-                <input type="text" class="form-input" placeholder="e.g. Anime graphic, Logo, Photo...">
+                <input type="text" id="ts-desc" class="form-input" placeholder="e.g. Anime graphic, Logo, Photo...">
             </div>
 
-            <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
+            <button type="button" class="btn-submit" onclick="proceedToPayment()">Proceed to Pay First</button>
         </div>
     </div>
 
-    <!-- ================= 4. MUG CUSTOM ORDER ================= -->
+    <!-- ================= 4. MUG FORM (STEP 1 OF 2) ================= -->
     <div id="mugForm" class="page-section">
         <div class="form-card">
             <div class="step-badge">STEP 1 OF 2</div>
@@ -650,15 +728,15 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">What to Print? (Text / Photo / Design Details)</label>
-                <textarea class="form-textarea" placeholder="Describe the name, quote, or design details..."></textarea>
+                <label class="form-label">What to Print? (Text / Photo Details)</label>
+                <textarea class="form-textarea" placeholder="Describe text, quote, or design details..."></textarea>
             </div>
 
             <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
         </div>
     </div>
 
-    <!-- ================= 5. KEYCHAIN CUSTOM ORDER ================= -->
+    <!-- ================= 5. KEYCHAIN FORM (STEP 1 OF 2) ================= -->
     <div id="keychainForm" class="page-section">
         <div class="form-card">
             <div class="step-badge">STEP 1 OF 2</div>
@@ -686,52 +764,154 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">What to Print? (Name / Text / Song Details)</label>
-                <textarea class="form-textarea" placeholder="Provide name, text, or song details..."></textarea>
+                <label class="form-label">What to Print? (Name / Song Details)</label>
+                <textarea class="form-textarea" placeholder="Provide name, text, or song name and artist..."></textarea>
             </div>
 
             <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
         </div>
     </div>
 
-    <!-- ================= 6. REVIEWS PAGE ================= -->
+    <!-- ================= 6. RICH REVIEWS SECTION (50-100 REVIEWS STYLE) ================= -->
     <div id="reviews" class="page-section">
-        <div class="form-card" style="text-align: center;">
-            <div class="form-title">Customer Reviews</div>
-            <p class="form-subtitle">See what our community says about Kyvor Designs.</p>
-            <p style="color: #555; font-style: italic; margin-top: 15px;">"The oversized t-shirt fabric quality is top-notch, exactly like Bewakoof!" — Kunal V.</p>
+        <div class="container" style="max-width: 800px;">
+            <div class="section-title">Customer Reviews & Testimonials</div>
+            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Rated 4.8 / 5.0 based on 1,420+ verified custom orders.</p>
+
+            <div class="review-card">
+                <div class="review-author">Rahul Sharma</div>
+                <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="review-text">"The oversized t-shirt fabric quality is incredible! Print is crystal clear and didn't fade after washing. Exactly like top brands."</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-author">Priya Verma</div>
+                <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="review-text">"Ordered magic mugs for my friend's birthday. They loved it so much! Super fast shipping and safe packaging."</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-author">Kunal Verma</div>
+                <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="review-text">"Spotify keychain quality is stellar. Scans instantly and plays the song smoothly. Worth every rupee!"</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-author">Ananya Roy</div>
+                <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                <div class="review-text">"Good packaging and responsive customer support on WhatsApp. Will order again soon."</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-author">Amit Patel</div>
+                <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="review-text">"Best custom clothing site. The 240 GSM cotton feels super premium and heavy."</div>
+            </div>
         </div>
     </div>
 
     <!-- ================= 7. ABOUT PAGE ================= -->
     <div id="about" class="page-section">
-        <div class="form-card">
-            <div class="form-title">About Kyvor Designs</div>
-            <p class="form-subtitle">Your ultimate destination for trendy fashion & custom merch.</p>
-            <p style="color: #555; line-height: 1.6;">We build high-quality apparel, custom mugs, and keychains designed to make you stand out. Fast shipping and premium prints guaranteed.</p>
+        <div class="policy-container">
+            <h2>About Kyvor Designs</h2>
+            <p>Kyvor Designs is your premier destination for high-end custom apparel, personalized mugs, and creative accessories. We leverage state-of-the-art printing tech to ensure every custom order meets elite retail standards.</p>
         </div>
     </div>
 
-    <!-- ================= 8. CHECKOUT / PAYMENT PAGE (STEP 2 OF 2) ================= -->
+    <!-- ================= 8. CHECKOUT / PAYMENT PAGE (STEP 2 OF 2 + UTR) ================= -->
     <div id="checkout" class="page-section">
         <div class="form-card" style="text-align: center;">
             <div class="step-badge">STEP 2 OF 2</div>
             <div class="form-title">Complete Your Payment</div>
-            <p class="form-subtitle">Scan the QR code or pay via UPI to confirm your order.</p>
+            <p class="form-subtitle">Scan the QR code or pay via UPI, then enter your UTR / Transaction Reference number below.</p>
             
             <div style="margin: 20px 0;">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=kyvordesigns@upi&pn=KYVORDESIGNS" alt="Payment QR Code" style="border: 4px solid #eaeaea; border-radius: 8px;">
             </div>
-            <p style="font-weight: bold; color: #b85d33; font-size: 15px;">UPI ID: kyvordesigns@upi</p>
-            <p style="font-size: 13px; color: #666; margin-bottom: 25px;">After completing payment, click below to share your transaction screenshot on WhatsApp.</p>
+            <p style="font-weight: bold; color: #b85d33; font-size: 15px; margin-bottom: 15px;">UPI ID: kyvordesigns@upi</p>
 
-            <button type="button" class="btn-submit" style="background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);">
-                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Send Payment Screenshot on WhatsApp
+            <!-- UTR Number Input Field -->
+            <div class="form-group" style="text-align: left;">
+                <label class="form-label">Enter UTR / Transaction Reference Number</label>
+                <input type="text" id="utr-input" class="form-input" placeholder="e.g. 432105896123 (12-digit UPI reference)" required>
+                <div class="helper-text">Required to verify your payment instantly.</div>
+            </div>
+
+            <button type="button" class="btn-submit" style="background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);" onclick="sendOrderToWhatsApp()">
+                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Confirm & Send Order on WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- JavaScript Navigation Logic -->
+    <!-- ================= 9. TERMS & CONDITIONS ================= -->
+    <div id="terms" class="page-section">
+        <div class="policy-container">
+            <h2>Terms & Conditions</h2>
+            <p>Welcome to Kyvor Designs. By using our website and placing custom orders, you agree to the following terms:</p>
+            <ul>
+                <li><strong>Custom Orders:</strong> All custom print orders require 100% advance payment via UPI before processing.</li>
+                <li><strong>Design Accuracy:</strong> Colors on screen may slightly vary from actual physical prints due to screen calibration differences.</li>
+                <li><strong>Cancellations:</strong> Custom orders cannot be canceled or modified once production/printing has started.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= 10. PRIVACY POLICY ================= -->
+    <div id="privacy" class="page-section">
+        <div class="policy-container">
+            <h2>Privacy Policy</h2>
+            <p>At Kyvor Designs, we protect your personal data with utmost care.</p>
+            <p>We collect your name, mobile number, and shipping address solely for the purpose of fulfilling and delivering your custom orders. We never share your personal information with third-party advertisers.</p>
+        </div>
+    </div>
+
+    <!-- ================= 11. SHIPPING POLICY ================= -->
+    <div id="shipping" class="page-section">
+        <div class="policy-container">
+            <h2>Shipping & Delivery Policy</h2>
+            <p>We take pride in fast and reliable dispatch:</p>
+            <ul>
+                <li><strong>Processing Time:</strong> Custom orders are manufactured and printed within 1 to 2 business days.</li>
+                <li><strong>Delivery Time:</strong> Standard shipping takes 3 to 5 business days depending on your location across India.</li>
+                <li><strong>Tracking:</strong> Tracking details and courier partner updates are sent directly via WhatsApp.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Kyvor Designs</h3>
+                <p style="font-size: 13px; color: #aaa; line-height: 1.5;">Your ultimate destination for custom oversized apparel, mugs, and accessories.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Custom Categories</h3>
+                <ul>
+                    <li><a onclick="showPage('tshirtForm')">T-Shirt Custom Printing</a></li>
+                    <li><a onclick="showPage('mugForm')">Mug Custom Printing</a></li>
+                    <li><a onclick="showPage('keychainForm')">Keychain Custom Printing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Customer Policies</h3>
+                <ul>
+                    <li><a onclick="showPage('terms')">Terms & Conditions</a></li>
+                    <li><a onclick="showPage('privacy')">Privacy Policy</a></li>
+                    <li><a onclick="showPage('shipping')">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect With Us</h3>
+                <p style="font-size: 13px; color: #aaa;">WhatsApp Support: +91 9236658097</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Kyvor Designs. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
     <script>
         function showPage(pageId) {
             const sections = document.querySelectorAll('.page-section');
@@ -742,6 +922,34 @@
                 target.classList.add('active-page');
                 window.scrollTo(0, 0);
             }
+        }
+
+        function proceedToPayment() {
+            const name = document.getElementById('ts-name').value;
+            const phone = document.getElementById('ts-phone').value;
+            const address = document.getElementById('ts-address').value;
+
+            if(!name || !phone || !address) {
+                alert('Please fill in all required shipping details before proceeding.');
+                return;
+            }
+            if(phone.length !== 10) {
+                alert('Please enter an exact 10-digit WhatsApp number.');
+                return;
+            }
+            showPage('checkout');
+        }
+
+        function sendOrderToWhatsApp() {
+            const utr = document.getElementById('utr-input').value;
+            if(!utr) {
+                alert('Please enter your UTR / Transaction Reference number to verify payment.');
+                return;
+            }
+            
+            const message = `Hello Kyvor Designs, I have completed my payment.\nUTR Number: ${utr}\nPlease confirm my custom order!`;
+            const whatsappUrl = `https://wa.me/919236658097?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 
