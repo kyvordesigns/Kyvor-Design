@@ -310,7 +310,7 @@
     <!-- Yeh naya dropdown yahan sabse pehle daal do -->
     <div class="form-group">
         <label class="form-label">Select Item Type</label>
-        <select class="form-select" id="itemType" onchange="toggleFormFields()">
+        <select class="form-select" id="itemType" required>
              <option value="T-Shirt">T-Shirt</option>
             <option value="Mug">Mug</option>
             <option value="Keychain">Keychain</option>
@@ -318,7 +318,6 @@
     </div>
 
     <div class="form-group">
-        <div id="tshirtOptions">
         <label class="form-label">Print Placement (Print Kaha Hoga?)</label>
         <!-- Baaki purana code waise hi rahega -->
                     <div class="form-grid">
@@ -811,26 +810,6 @@
     const buttons = button.parentElement.querySelectorAll('.size-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
-}
-        function toggleFormFields() {
-    const selectedType = document.getElementById('itemType').value;
-    const tshirtDiv = document.getElementById('tshirtOptions');
-    const mugDiv = document.getElementById('mugOptions');
-    const keychainDiv = document.getElementById('keychainOptions');
-
-    // Sabhi ko pehle chupa do
-    tshirtDiv.style.display = 'none';
-    mugDiv.style.display = 'none';
-    keychainDiv.style.display = 'none';
-
-    // Jo select kiya hai sirf wahi dikhega
-    if (selectedType === 'T-Shirt') {
-        tshirtDiv.style.display = 'block';
-    } else if (selectedType === 'Mug') {
-        mugDiv.style.display = 'block';
-    } else if (selectedType === 'Keychain') {
-        keychainDiv.style.display = 'block';
-    }
 }
     </script>
 </body>
