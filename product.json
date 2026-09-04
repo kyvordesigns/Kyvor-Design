@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "KYVOR Heavyweight Oversized Tee",
+    "price": "₹1,499",
+    "image": "images/tee1.jpg",
+    "description": "240 GSM Pure Cotton, Jet Black"
+  },
+  {
+    "id": 2,
+    "name": "Urban Graphic Streetwear Hoodie",
+    "price": "₹2,499",
+    "image": "images/hoodie1.jpg",
+    "description": "Heavy fleece, Acid wash finish"
+  }
+]
