@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYVOR DESIGNS</title>
+    <title>KYVOR DESIGNS - Custom Printing</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,7 +14,7 @@
             background-color: #f7f7f7;
             color: #333;
         }
-        /* Header & Navbar Styling matching screenshots */
+        /* Header & Navbar */
         header {
             display: flex;
             justify-content: space-between;
@@ -22,13 +22,16 @@
             padding: 20px 50px;
             background-color: #ffffff;
             border-bottom: 1px solid #eaeaea;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo {
             font-weight: 900;
             font-size: 24px;
             letter-spacing: 2px;
             color: #111;
+            cursor: pointer;
             line-height: 1;
         }
         .logo span {
@@ -50,13 +53,14 @@
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 1px;
+            cursor: pointer;
             transition: color 0.2s;
         }
         nav a:hover {
             color: #b85d33;
         }
 
-        /* Dropdown inside Navbar for Custom Print */
+        /* Dropdown in Navbar */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -66,17 +70,20 @@
             border: none;
             font-size: 13px;
             font-weight: 600;
-            color: #b85d33;
+            color: #555;
             letter-spacing: 1px;
             cursor: pointer;
             padding: 0;
             font-family: Arial, sans-serif;
         }
+        .dropdown:hover .dropbtn {
+            color: #b85d33;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #ffffff;
-            min-width: 180px;
+            min-width: 210px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             z-index: 1;
             border-radius: 4px;
@@ -100,10 +107,50 @@
             display: block;
         }
 
+        /* Page View Controller */
+        .page-section {
+            display: none;
+        }
+        .page-section.active-page {
+            display: block;
+        }
+
+        /* Hero / Home Screen */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 35px;
+        }
+        .hero-btn {
+            background-color: #b85d33;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(184, 93, 51, 0.4);
+        }
+
         /* Form Card Layout matching screenshots */
         .form-card {
             max-width: 650px;
-            margin: 40px auto 60px auto;
+            margin: 40px auto;
             background: #ffffff;
             padding: 40px 50px;
             border-radius: 8px;
@@ -184,17 +231,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 12px rgba(184, 93, 51, 0.3);
-            transition: opacity 0.2s;
             margin-top: 10px;
+            transition: opacity 0.2s;
         }
         .btn-submit:hover {
             opacity: 0.9;
-        }
-        .form-section {
-            display: none;
-        }
-        .form-section.active-section {
-            display: block;
         }
     </style>
 </head>
@@ -202,153 +243,234 @@
 
     <!-- Header & Navigation Bar -->
     <header>
-        <div class="logo">
+        <div class="logo" onclick="showPage('home')">
             KYVOR
             <span>DESIGNS</span>
         </div>
         <nav>
-            <a href="#">HOME</a>
-            <a href="#">SHOP</a>
+            <a onclick="showPage('home')">HOME</a>
+            <a onclick="showPage('shop')">SHOP</a>
             
-            <!-- Custom Print with Dropdown in Navbar -->
+            <!-- Custom Print Dropdown with options -->
             <div class="dropdown">
                 <button class="dropbtn">CUSTOM PRINT <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
                 <div class="dropdown-content">
-                    <a href="#" onclick="switchForm('tshirt')">T-Shirt Custom Order</a>
-                    <a href="#" onclick="switchForm('mugKeychain')">Mug & Keychain Order</a>
+                    <a onclick="showPage('tshirtForm')">T-Shirt Custom Order</a>
+                    <a onclick="showPage('mugForm')">Mug Custom Order</a>
+                    <a onclick="showPage('keychainForm')">Keychain Custom Order</a>
                 </div>
             </div>
 
-            <a href="#">REVIEWS</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CHECKOUT</a>
+            <a onclick="showPage('reviews')">REVIEWS</a>
+            <a onclick="showPage('about')">ABOUT</a>
+            <a onclick="showPage('checkout')">CHECKOUT</a>
         </nav>
     </header>
 
-    <!-- ============================================== -->
-    <!-- FORM 1: T-SHIRT CUSTOM SHIPPING & DETAILS -->
-    <!-- ============================================== -->
-    <div id="tshirtForm" class="form-card form-section active-section">
-        <div class="step-badge">STEP 1 OF 2</div>
-        <div class="form-title">Shipping Details</div>
-        <div class="form-subtitle">Fill in your details for custom T-shirt printing.</div>
-
-        <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" class="form-input" placeholder="Enter full name" required>
+    <!-- ================= 1. HOME SCREEN ================= -->
+    <div id="home" class="page-section active-page">
+        <div class="hero">
+            <h1>WELCOME TO KYVOR DESIGNS</h1>
+            <p>Premium Custom T-Shirts, Mugs, Keychains & Accessories Crafted For You.</p>
+            <button class="hero-btn" onclick="showPage('tshirtForm')">Start Custom Order</button>
         </div>
-
-        <div class="form-group">
-            <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
-            <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
-            <div class="helper-text">Must be exactly 10 numeric digits.</div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Complete Shipping Address</label>
-            <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Print Placement</label>
-            <select class="form-select" required>
-                <option value="Front Center Oversized">Front Center (Oversized Print)</option>
-                <option value="Back Oversized Print">Back (Oversized Graphic)</option>
-                <option value="Front Small Chest Logo">Front Small Chest Logo</option>
-                <option value="Both Front & Back Print">Both Front & Back Print</option>
-                <option value="Sleeve Print">Sleeve Print</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Select T-Shirt Size</label>
-            <select class="form-select" required>
-                <option value="22 (Kids)">22 (Kids)</option>
-                <option value="24 (Kids)">24 (Kids)</option>
-                <option value="26 (Kids)">26 (Kids)</option>
-                <option value="S">S - Small</option>
-                <option value="M" selected>M - Medium</option>
-                <option value="L">L - Large</option>
-                <option value="XL">XL - Extra Large</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Base T-Shirt Colour</label>
-            <select class="form-select" required>
-                <option value="Black">Black</option>
-                <option value="White">White</option>
-                <option value="Mustard Yellow">Mustard Yellow</option>
-                <option value="Parrot Green">Parrot Green</option>
-                <option value="Navy Blue">Navy Blue</option>
-                <option value="Maroon">Maroon</option>
-                <option value="Beige / Cream">Beige / Cream</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Print Description / Design Details</label>
-            <input type="text" class="form-input" placeholder="e.g. Anime graphic, Logo, Photo...">
-        </div>
-
-        <button type="button" class="btn-submit">Proceed to Pay First</button>
     </div>
 
-
-    <!-- ============================================== -->
-    <!-- FORM 2: MUG & KEYCHAIN CUSTOM ORDER -->
-    <!-- ============================================== -->
-    <div id="mugKeychainForm" class="form-card form-section">
-        <div class="step-badge">STEP 1 OF 2</div>
-        <div class="form-title">Mug & Keychain Order</div>
-        <div class="form-subtitle">Looking for a personalized gift or custom accessory? Place your order here!</div>
-
-        <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" class="form-input" placeholder="Enter full name" required>
+    <!-- ================= 2. SHOP PAGE ================= -->
+    <div id="shop" class="page-section">
+        <div class="form-card" style="text-align: center;">
+            <div class="form-title">Our Shop Collections</div>
+            <p class="form-subtitle">Browse through our exclusive pre-made inventory.</p>
+            <p style="color: #777; margin-bottom: 20px;">Standard store collections are updating soon. Try our Custom Print sections!</p>
+            <button class="hero-btn" onclick="showPage('tshirtForm')" style="padding: 12px 25px; font-size: 13px;">Go to Custom Print</button>
         </div>
-
-        <div class="form-group">
-            <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
-            <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
-            <div class="helper-text">Must be exactly 10 numeric digits.</div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Complete Shipping Address</label>
-            <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Select Item Type</label>
-            <select class="form-select" required>
-                <option value="" disabled selected>-- Select Product --</option>
-                <option value="Custom Glossy Mug">Custom Glossy Mug</option>
-                <option value="Custom Magic Mug">Custom Magic Mug (Color Changing)</option>
-                <option value="Custom Keychain">Custom Keychain</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">What to Print? (Description / Text / Design Details)</label>
-            <textarea class="form-textarea" placeholder="Describe the name, quote, text, or photo details you want printed..." required></textarea>
-        </div>
-
-        <button type="button" class="btn-submit">Proceed to Pay First</button>
     </div>
 
-    <!-- JavaScript to toggle views via Navbar dropdown -->
+    <!-- ================= 3. T-SHIRT CUSTOM ORDER (STEP 1 OF 2) ================= -->
+    <div id="tshirtForm" class="page-section">
+        <div class="form-card">
+            <div class="step-badge">STEP 1 OF 2</div>
+            <div class="form-title">Shipping Details</div>
+            <div class="form-subtitle">Fill in your details for custom T-shirt printing.</div>
+
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
+                <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
+                <div class="helper-text">Must be exactly 10 numeric digits.</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Complete Shipping Address</label>
+                <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Print Placement</label>
+                <select class="form-select">
+                    <option>Front Center (Oversized Print)</option>
+                    <option>Back (Oversized Graphic)</option>
+                    <option>Front Small Chest Logo</option>
+                    <option>Both Front & Back Print</option>
+                    <option>Sleeve Print</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Select T-Shirt Size</label>
+                <select class="form-select">
+                    <option>22 (Kids)</option>
+                    <option>24 (Kids)</option>
+                    <option>26 (Kids)</option>
+                    <option>S - Small</option>
+                    <option selected>M - Medium</option>
+                    <option>L - Large</option>
+                    <option>XL - Extra Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Base T-Shirt Colour</label>
+                <select class="form-select">
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Mustard Yellow</option>
+                    <option>Parrot Green</option>
+                    <option>Navy Blue</option>
+                    <option>Maroon</option>
+                    <option>Beige / Cream</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Print Description / Design Details</label>
+                <input type="text" class="form-input" placeholder="e.g. Anime graphic, Logo, Photo...">
+            </div>
+
+            <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
+        </div>
+    </div>
+
+    <!-- ================= 4. MUG CUSTOM ORDER (SEPARATE) ================= -->
+    <div id="mugForm" class="page-section">
+        <div class="form-card">
+            <div class="step-badge">STEP 1 OF 2</div>
+            <div class="form-title">Mug Custom Order</div>
+            <div class="form-subtitle">Create a personalized custom mug.</div>
+
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
+                <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
+                <div class="helper-text">Must be exactly 10 numeric digits.</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Complete Shipping Address</label>
+                <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Select Mug Type</label>
+                <select class="form-select">
+                    <option>Custom Glossy White Mug</option>
+                    <option>Custom Magic Mug (Color Changing)</option>
+                    <option>Custom Couple Mug Set</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">What to Print? (Text / Photo / Design Details)</label>
+                <textarea class="form-textarea" placeholder="Describe the name, quote, text, or photo details you want printed..."></textarea>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
+        </div>
+    </div>
+
+    <!-- ================= 5. KEYCHAIN CUSTOM ORDER (SEPARATE) ================= -->
+    <div id="keychainForm" class="page-section">
+        <div class="form-card">
+            <div class="step-badge">STEP 1 OF 2</div>
+            <div class="form-title">Keychain Custom Order</div>
+            <div class="form-subtitle">Design your custom acrylic or metal keychain.</div>
+
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
+                <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
+                <div class="helper-text">Must be exactly 10 numeric digits.</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Complete Shipping Address</label>
+                <input type="text" class="form-input" placeholder="House No, Street, City, Pincode" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Select Keychain Type</label>
+                <select class="form-select">
+                    <option>Custom Spotify Song Acrylic Keychain</option>
+                    <option>Custom Name / Photo Keychain</option>
+                    <option>Car Number Plate Keychain</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">What to Print? (Name / Text / Song Details)</label>
+                <textarea class="form-textarea" placeholder="Provide name, text, or song name and artist..."></textarea>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
+        </div>
+    </div>
+
+    <!-- ================= 6. REVIEWS PAGE ================= -->
+    <div id="reviews" class="page-section">
+        <div class="form-card" style="text-align: center;">
+            <div class="form-title">Customer Reviews</div>
+            <p class="form-subtitle">See what our happy customers say about Kyvor Designs.</p>
+            <p style="color: #555; font-style: italic; margin-top: 15px;">"Superb custom print quality and fast delivery! Loved my oversized t-shirt." — Rohan M.</p>
+            <p style="color: #555; font-style: italic; margin-top: 10px;">"Ordered magic mugs for a birthday gift, came out brilliantly!" — Priya S.</p>
+        </div>
+    </div>
+
+    <!-- ================= 7. ABOUT PAGE ================= -->
+    <div id="about" class="page-section">
+        <div class="form-card">
+            <div class="form-title">About Kyvor Designs</div>
+            <p class="form-subtitle">Your ultimate destination for premium custom apparel & accessories.</p>
+            <p style="color: #555; line-height: 1.6;">We specialize in bringing your creative ideas to life with high-durability prints across T-Shirts, Mugs, and Keychains. Every single piece is carefully crafted and shipped right to your doorstep.</p>
+        </div>
+    </div>
+
+    <!-- ================= 8. CHECKOUT / PAYMENT PAGE (STEP 2 OF 2) ================= -->
+    <div id="checkout" class="page-section">
+        <div class="form-card" style="text-align: center;">
+            <div class="step-badge">STEP 2 OF 2</div>
+            <div class="form-title">Complete Your Payment</div>
+            <p class="form-subtitle">Scan the QR code or pay via UPI to confirm your order.</p>
+            
+            <div style="margin: 20px 0;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=kyvordesigns@upi&pn=KYVORDESIGNS" alt="Payment QR Code" style="border: 4px solid #eaeaea; border-radius: 8px;">
+            </div>
+            <p style="font-weight: bold; color: #b85d33; font-size: 15px;">UPI ID: kyvordesigns@upi</p>
+            <p style="font-size: 13px; color: #666; margin-bottom: 25px;">After completing payment, click below to share your transaction screenshot on WhatsApp.</p>
+
+            <button type="button" class="btn-submit" style="background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);">
+                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Send Payment Screenshot on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript to Handle Screen Switching -->
     <script>
-        function switchForm(type) {
-            const tshirtForm = document.getElementById('tshirtForm');
-            const mugKeychainForm = document.getElementById('mugKeychainForm');
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-page'));
 
-            if (type === 'tshirt') {
-                tshirtForm.classList.add('active-section');
-                mugKeychainForm.classList.remove('active-section');
-            } else if (type === 'mugKeychain') {
-                mugKeychainForm.classList.add('active-section');
-                tshirtForm.classList.remove('active-section');
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active-page');
+                window.scrollTo(0, 0);
             }
         }
     </script>
