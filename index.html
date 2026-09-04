@@ -3,32 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYVOR DESIGNS - Custom Printing</title>
+    <title>KYVOR DESIGNS - Online Shopping for Custom & Trendy Merch</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f0f0;
             color: #333;
         }
+
+        /* Top Announcement Bar (Bewakoof style) */
+        .announcement-bar {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            padding: 8px 10px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .announcement-bar span {
+            color: #ffd814;
+        }
+
         /* Header & Navbar */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
             background-color: #ffffff;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #ddd;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
+        .navbar-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
         .logo {
             font-weight: 900;
-            font-size: 24px;
+            font-size: 26px;
             letter-spacing: 2px;
             color: #111;
             cursor: pointer;
@@ -36,48 +58,76 @@
         }
         .logo span {
             display: block;
-            font-size: 9px;
-            letter-spacing: 4px;
-            color: #666;
+            font-size: 8px;
+            letter-spacing: 5px;
+            color: #b85d33;
             font-weight: bold;
-            margin-top: 4px;
+            margin-top: 3px;
         }
-        nav {
+        .nav-links {
             display: flex;
             gap: 25px;
             align-items: center;
         }
-        nav a {
+        .nav-links a {
             text-decoration: none;
-            color: #555;
+            color: #333;
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: color 0.2s;
         }
-        nav a:hover {
+        .nav-links a:hover {
             color: #b85d33;
         }
 
-        /* Dropdown in Navbar */
+        /* Search Bar in Header */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f4f4f4;
+            border-radius: 4px;
+            padding: 8px 12px;
+            width: 250px;
+            border: 1px solid #ddd;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        /* Icons Right */
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+        }
+        .cart-badge {
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #b85d33;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        /* Dropdown Menu */
         .dropdown {
             position: relative;
             display: inline-block;
-        }
-        .dropbtn {
-            background: none;
-            border: none;
-            font-size: 13px;
-            font-weight: 600;
-            color: #555;
-            letter-spacing: 1px;
-            cursor: pointer;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .dropdown:hover .dropbtn {
-            color: #b85d33;
         }
         .dropdown-content {
             display: none;
@@ -87,7 +137,7 @@
             box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             z-index: 1;
             border-radius: 4px;
-            top: 25px;
+            top: 30px;
             left: 0;
             border: 1px solid #eaeaea;
         }
@@ -110,44 +160,166 @@
         /* Page View Controller */
         .page-section {
             display: none;
+            min-height: 80vh;
         }
         .page-section.active-page {
             display: block;
         }
 
-        /* Hero / Home Screen */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #1a1a1a, #333);
+        /* Homepage Banner & Grid Styles */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .hero-banner {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #111, #333);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+        .hero-banner h1 {
+            font-size: 38px;
             font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
-        .hero p {
-            font-size: 16px;
-            color: #ccc;
-            margin-bottom: 35px;
+        .hero-banner p {
+            font-size: 15px;
+            color: #ddd;
+            margin-bottom: 25px;
         }
-        .hero-btn {
+        .btn-main {
             background-color: #b85d33;
             color: white;
             border: none;
-            padding: 15px 35px;
-            font-size: 15px;
+            padding: 14px 32px;
+            font-size: 14px;
             font-weight: bold;
             border-radius: 6px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(184, 93, 51, 0.4);
+            box-shadow: 0 4px 12px rgba(184, 93, 51, 0.3);
+        }
+        .btn-main:hover {
+            opacity: 0.9;
         }
 
-        /* Form Card Layout matching screenshots */
+        /* Section Headings */
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #111;
+            border-left: 5px solid #b85d33;
+            padding-left: 10px;
+        }
+
+        /* Product Grid (Bewakoof Style) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        .product-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .product-img {
+            width: 100%;
+            height: 280px;
+            background-color: #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+            position: relative;
+        }
+        .badge-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #111;
+            color: #fff;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        .product-desc {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .current-price {
+            font-size: 16px;
+            font-weight: 800;
+            color: #111;
+        }
+        .original-price {
+            font-size: 13px;
+            color: #888;
+            text-decoration: line-through;
+        }
+        .discount {
+            font-size: 12px;
+            color: #008000;
+            font-weight: bold;
+        }
+        .btn-card {
+            width: 100%;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-card:hover {
+            background: #b85d33;
+        }
+
+        /* Form Card Layout (Exact Screenshots Style) */
         .form-card {
             max-width: 650px;
             margin: 40px auto;
@@ -202,7 +374,6 @@
             box-sizing: border-box;
             background-color: #fcfcfc;
             color: #333;
-            transition: border-color 0.2s;
         }
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             border-color: #b85d33;
@@ -232,7 +403,6 @@
             letter-spacing: 1px;
             box-shadow: 0 4px 12px rgba(184, 93, 51, 0.3);
             margin-top: 10px;
-            transition: opacity 0.2s;
         }
         .btn-submit:hover {
             opacity: 0.9;
@@ -241,48 +411,151 @@
 </head>
 <body>
 
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        🔥 BUY 2 GET 1 FREE on All Custom Orders! Use Code: <span>KYVOR3</span> 🔥
+    </div>
+
     <!-- Header & Navigation Bar -->
     <header>
-        <div class="logo" onclick="showPage('home')">
-            KYVOR
-            <span>DESIGNS</span>
-        </div>
-        <nav>
-            <a onclick="showPage('home')">HOME</a>
-            <a onclick="showPage('shop')">SHOP</a>
-            
-            <!-- Custom Print Dropdown with options -->
-            <div class="dropdown">
-                <button class="dropbtn">CUSTOM PRINT <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
-                <div class="dropdown-content">
-                    <a onclick="showPage('tshirtForm')">T-Shirt Custom Order</a>
-                    <a onclick="showPage('mugForm')">Mug Custom Order</a>
-                    <a onclick="showPage('keychainForm')">Keychain Custom Order</a>
-                </div>
+        <div class="navbar-main">
+            <div class="logo" onclick="showPage('home')">
+                KYVOR
+                <span>DESIGNS</span>
             </div>
 
-            <a onclick="showPage('reviews')">REVIEWS</a>
-            <a onclick="showPage('about')">ABOUT</a>
-            <a onclick="showPage('checkout')">CHECKOUT</a>
-        </nav>
+            <div class="search-box">
+                <i class="fa-solid fa-search" style="color: #777; font-size: 13px;"></i>
+                <input type="text" placeholder="Search T-shirts, Mugs, Keychains...">
+            </div>
+
+            <nav class="nav-links">
+                <a onclick="showPage('home')">HOME</a>
+                <a onclick="showPage('shop')">SHOP</a>
+                
+                <!-- Custom Print Dropdown -->
+                <div class="dropdown">
+                    <a class="dropbtn">CUSTOM PRINT <i class="fa-solid fa-chevron-down" style="font-size: 9px;"></i></a>
+                    <div class="dropdown-content">
+                        <a onclick="showPage('tshirtForm')">T-Shirt Custom Order</a>
+                        <a onclick="showPage('mugForm')">Mug Custom Order</a>
+                        <a onclick="showPage('keychainForm')">Keychain Custom Order</a>
+                    </div>
+                </div>
+
+                <a onclick="showPage('reviews')">REVIEWS</a>
+                <a onclick="showPage('about')">ABOUT</a>
+            </nav>
+
+            <div class="nav-icons">
+                <i class="fa-regular fa-heart"></i>
+                <div class="cart-badge" onclick="showPage('checkout')">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count">1</span>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- ================= 1. HOME SCREEN ================= -->
+    <!-- ================= 1. HOME SCREEN (BEWAKOOF STYLE) ================= -->
     <div id="home" class="page-section active-page">
-        <div class="hero">
-            <h1>WELCOME TO KYVOR DESIGNS</h1>
-            <p>Premium Custom T-Shirts, Mugs, Keychains & Accessories Crafted For You.</p>
-            <button class="hero-btn" onclick="showPage('tshirtForm')">Start Custom Order</button>
+        <div class="container">
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+                <h1>DESIGN YOUR OWN VIBE</h1>
+                <p>High-Density Oversized T-Shirts, Custom Mugs & Personalized Keychains Crafted Just For You.</p>
+                <button class="btn-main" onclick="showPage('tshirtForm')">Start Customizing Now</button>
+            </div>
+
+            <!-- Trending Collections Grid -->
+            <div class="section-title">Trending Custom Merch</div>
+            <div class="product-grid">
+                
+                <div class="product-card" onclick="showPage('tshirtForm')">
+                    <div class="product-img">
+                        <div class="badge-tag">Bestseller</div>
+                        <span>Oversized T-Shirt Preview</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Custom Oversized T-Shirt</div>
+                        <div class="product-desc">Heavyweight 240 GSM Cotton</div>
+                        <div class="price-box">
+                            <span class="current-price">₹499</span>
+                            <span class="original-price">₹1,299</span>
+                            <span class="discount">61% OFF</span>
+                        </div>
+                        <button class="btn-card">Customize Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="showPage('mugForm')">
+                    <div class="product-img">
+                        <div class="badge-tag">Popular Gift</div>
+                        <span>Custom Mug Preview</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Personalized Magic / Glossy Mug</div>
+                        <div class="product-desc">High Definition Ceramic Print</div>
+                        <div class="price-box">
+                            <span class="current-price">₹299</span>
+                            <span class="original-price">₹699</span>
+                            <span class="discount">57% OFF</span>
+                        </div>
+                        <button class="btn-card">Customize Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="showPage('keychainForm')">
+                    <div class="product-img">
+                        <div class="badge-tag">Trending</div>
+                        <span>Keychain Preview</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Custom Acrylic Spotify Keychain</div>
+                        <div class="product-desc">Scan Code & Play Your Song</div>
+                        <div class="price-box">
+                            <span class="current-price">₹199</span>
+                            <span class="original-price">₹499</span>
+                            <span class="discount">60% OFF</span>
+                        </div>
+                        <button class="btn-card">Customize Now</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
     <!-- ================= 2. SHOP PAGE ================= -->
     <div id="shop" class="page-section">
-        <div class="form-card" style="text-align: center;">
-            <div class="form-title">Our Shop Collections</div>
-            <p class="form-subtitle">Browse through our exclusive pre-made inventory.</p>
-            <p style="color: #777; margin-bottom: 20px;">Standard store collections are updating soon. Try our Custom Print sections!</p>
-            <button class="hero-btn" onclick="showPage('tshirtForm')" style="padding: 12px 25px; font-size: 13px;">Go to Custom Print</button>
+        <div class="container">
+            <div class="section-title">All Products Collection</div>
+            <div class="product-grid">
+                <div class="product-card" onclick="showPage('tshirtForm')">
+                    <div class="product-img"><span>Black Oversized Tee</span></div>
+                    <div class="product-info">
+                        <div class="product-name">Custom Black Heavyweight Tee</div>
+                        <div class="price-box"><span class="current-price">₹499</span></div>
+                        <button class="btn-card">Order Custom</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="showPage('mugForm')">
+                    <div class="product-img"><span>White Ceramic Mug</span></div>
+                    <div class="product-info">
+                        <div class="product-name">Custom Photo Mug</div>
+                        <div class="price-box"><span class="current-price">₹299</span></div>
+                        <button class="btn-card">Order Custom</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="showPage('keychainForm')">
+                    <div class="product-img"><span>Name Tag Keychain</span></div>
+                    <div class="product-info">
+                        <div class="product-name">Custom Acrylic Keychain</div>
+                        <div class="price-box"><span class="current-price">₹199</span></div>
+                        <button class="btn-card">Order Custom</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -349,12 +622,12 @@
         </div>
     </div>
 
-    <!-- ================= 4. MUG CUSTOM ORDER (SEPARATE) ================= -->
+    <!-- ================= 4. MUG CUSTOM ORDER ================= -->
     <div id="mugForm" class="page-section">
         <div class="form-card">
             <div class="step-badge">STEP 1 OF 2</div>
             <div class="form-title">Mug Custom Order</div>
-            <div class="form-subtitle">Create a personalized custom mug.</div>
+            <div class="form-subtitle">Create your personalized custom mug.</div>
 
             <div class="form-group">
                 <label class="form-label">Full Name</label>
@@ -363,7 +636,6 @@
             <div class="form-group">
                 <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
                 <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
-                <div class="helper-text">Must be exactly 10 numeric digits.</div>
             </div>
             <div class="form-group">
                 <label class="form-label">Complete Shipping Address</label>
@@ -379,14 +651,14 @@
             </div>
             <div class="form-group">
                 <label class="form-label">What to Print? (Text / Photo / Design Details)</label>
-                <textarea class="form-textarea" placeholder="Describe the name, quote, text, or photo details you want printed..."></textarea>
+                <textarea class="form-textarea" placeholder="Describe the name, quote, or design details..."></textarea>
             </div>
 
             <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
         </div>
     </div>
 
-    <!-- ================= 5. KEYCHAIN CUSTOM ORDER (SEPARATE) ================= -->
+    <!-- ================= 5. KEYCHAIN CUSTOM ORDER ================= -->
     <div id="keychainForm" class="page-section">
         <div class="form-card">
             <div class="step-badge">STEP 1 OF 2</div>
@@ -400,7 +672,6 @@
             <div class="form-group">
                 <label class="form-label">WhatsApp Mobile Number (Exact 10 Digits)</label>
                 <input type="tel" class="form-input" placeholder="e.g. 9236658097" maxlength="10" required>
-                <div class="helper-text">Must be exactly 10 numeric digits.</div>
             </div>
             <div class="form-group">
                 <label class="form-label">Complete Shipping Address</label>
@@ -416,7 +687,7 @@
             </div>
             <div class="form-group">
                 <label class="form-label">What to Print? (Name / Text / Song Details)</label>
-                <textarea class="form-textarea" placeholder="Provide name, text, or song name and artist..."></textarea>
+                <textarea class="form-textarea" placeholder="Provide name, text, or song details..."></textarea>
             </div>
 
             <button type="button" class="btn-submit" onclick="showPage('checkout')">Proceed to Pay First</button>
@@ -427,9 +698,8 @@
     <div id="reviews" class="page-section">
         <div class="form-card" style="text-align: center;">
             <div class="form-title">Customer Reviews</div>
-            <p class="form-subtitle">See what our happy customers say about Kyvor Designs.</p>
-            <p style="color: #555; font-style: italic; margin-top: 15px;">"Superb custom print quality and fast delivery! Loved my oversized t-shirt." — Rohan M.</p>
-            <p style="color: #555; font-style: italic; margin-top: 10px;">"Ordered magic mugs for a birthday gift, came out brilliantly!" — Priya S.</p>
+            <p class="form-subtitle">See what our community says about Kyvor Designs.</p>
+            <p style="color: #555; font-style: italic; margin-top: 15px;">"The oversized t-shirt fabric quality is top-notch, exactly like Bewakoof!" — Kunal V.</p>
         </div>
     </div>
 
@@ -437,8 +707,8 @@
     <div id="about" class="page-section">
         <div class="form-card">
             <div class="form-title">About Kyvor Designs</div>
-            <p class="form-subtitle">Your ultimate destination for premium custom apparel & accessories.</p>
-            <p style="color: #555; line-height: 1.6;">We specialize in bringing your creative ideas to life with high-durability prints across T-Shirts, Mugs, and Keychains. Every single piece is carefully crafted and shipped right to your doorstep.</p>
+            <p class="form-subtitle">Your ultimate destination for trendy fashion & custom merch.</p>
+            <p style="color: #555; line-height: 1.6;">We build high-quality apparel, custom mugs, and keychains designed to make you stand out. Fast shipping and premium prints guaranteed.</p>
         </div>
     </div>
 
@@ -461,7 +731,7 @@
         </div>
     </div>
 
-    <!-- JavaScript to Handle Screen Switching -->
+    <!-- JavaScript Navigation Logic -->
     <script>
         function showPage(pageId) {
             const sections = document.querySelectorAll('.page-section');
