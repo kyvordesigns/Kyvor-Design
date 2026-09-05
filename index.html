@@ -310,6 +310,7 @@
     </div>
 </div>
         <!-- T-SHIRTS SECTION -->
+<!-- T-SHIRTS SECTION (With Extended Colour Options) -->
 <section id="tshirts" style="margin-bottom: 60px;">
     <div style="text-align: center; margin-bottom: 40px;">
         <span class="badge-gold">Exclusive Apparel</span>
@@ -318,15 +319,17 @@
     </div>
 
     <div class="products-grid">
+        <!-- Loop for 10 T-Shirts with Expanded Colors -->
         <!-- 1. Deer Tee -->
         <div class="product-card" id="card-tshirt-1">
             <div class="product-thumb">
                 <img src="images/deer.jpeg" alt="Kyvor Majestic Deer Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Deer+Tee'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Majestic Deer Tee</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Majestic Deer Tee</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't1Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't1Size')">L</button>
@@ -334,8 +337,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't1Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't1Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't1Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Majestic Deer Tee', 400, 'card-tshirt-1')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Majestic Deer Tee', 400, 'card-tshirt-1')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -346,9 +362,10 @@
                 <img src="images/supra.jpeg" alt="Kyvor Supra Street Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Supra+Tee'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Supra Street Tee</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Supra Street Tee</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't2Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't2Size')">L</button>
@@ -356,8 +373,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't2Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't2Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't2Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Supra Street Tee', 450, 'card-tshirt-2')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Supra Street Tee', 450, 'card-tshirt-2')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -368,9 +398,10 @@
                 <img src="images/tee_3.jpeg" alt="Tee 3" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+3'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 03</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 03</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't3Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't3Size')">L</button>
@@ -378,8 +409,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't3Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't3Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't3Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 03', 450, 'card-tshirt-3')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 03', 450, 'card-tshirt-3')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -390,9 +434,10 @@
                 <img src="images/tee_4.jpeg" alt="Tee 4" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+4'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 04</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 04</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't4Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't4Size')">L</button>
@@ -400,8 +445,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't4Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't4Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't4Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 04', 450, 'card-tshirt-4')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 04', 450, 'card-tshirt-4')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -412,9 +470,10 @@
                 <img src="images/tee_5.jpeg" alt="Tee 5" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+5'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 05</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 05</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't5Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't5Size')">L</button>
@@ -422,8 +481,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't5Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't5Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't5Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 05', 450, 'card-tshirt-5')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 05', 450, 'card-tshirt-5')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -434,9 +506,10 @@
                 <img src="images/tee_6.jpeg" alt="Tee 6" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+6'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 06</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 06</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't6Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't6Size')">L</button>
@@ -444,8 +517,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't6Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't6Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't6Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 06', 450, 'card-tshirt-6')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 06', 450, 'card-tshirt-6')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -456,9 +542,10 @@
                 <img src="images/tee_7.jpeg" alt="Tee 7" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+7'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 07</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 07</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't7Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't7Size')">L</button>
@@ -466,8 +553,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't7Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't7Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't7Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 07', 450, 'card-tshirt-7')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 07', 450, 'card-tshirt-7')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -478,9 +578,10 @@
                 <img src="images/tee_8.jpeg" alt="Tee 8" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+8'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 08</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 08</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't8Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't8Size')">L</button>
@@ -488,8 +589,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't8Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't8Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't8Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 08', 450, 'card-tshirt-8')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 08', 450, 'card-tshirt-8')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -500,9 +614,10 @@
                 <img src="images/tee_9.jpeg" alt="Tee 9" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+9'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 09</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 09</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't9Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't9Size')">L</button>
@@ -510,8 +625,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't9Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't9Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't9Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 09', 450, 'card-tshirt-9')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 09', 450, 'card-tshirt-9')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -522,9 +650,10 @@
                 <img src="images/tee_10.jpeg" alt="Tee 10" onerror="this.src='https://via.placeholder.com/400x500?text=Tee+10'">
             </div>
             <div class="product-details">
-                <h3 style="font-size: 1.1rem;">Kyvor Street Tee 10</h3>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Street Tee 10</h3>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
                 <div class="selector-wrap">
-                    <span class="selector-label">Sizes:</span>
+                    <span class="selector-label">Available Sizes:</span>
                     <div class="btn-group">
                         <button class="size-btn" onclick="selectOption(this, 't10Size')">M</button>
                         <button class="size-btn" onclick="selectOption(this, 't10Size')">L</button>
@@ -532,8 +661,21 @@
                         <button class="size-btn" onclick="selectOption(this, 't10Size')">XXL</button>
                     </div>
                 </div>
+                <div class="selector-wrap">
+                    <span class="selector-label">Select Colour:</span>
+                    <div class="btn-group">
+                        <button class="color-btn active" onclick="selectOption(this, 't10Color')">Jet Black</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Navy Blue</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">White</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Parrot Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Mustard Yellow</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Orange</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Olive Green</button>
+                        <button class="color-btn" onclick="selectOption(this, 't10Color')">Maroon</button>
+                    </div>
+                </div>
                 <div class="card-footer">
-                    <button class="btn-gold" onclick="addToCart('Kyvor Street Tee 10', 450, 'card-tshirt-10')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+                    <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Street Tee 10', 450, 'card-tshirt-10')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
                 </div>
             </div>
         </div>
