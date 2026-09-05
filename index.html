@@ -216,78 +216,83 @@
     <!-- SHOP / CATALOG SECTION -->
     <section class="section-padding" id="shop">
         <div class="container">
+        <!-- OUR T-SHIRT COLLECTION -->
+<div style="margin-bottom: 20px; text-align: center;">
+    <span class="badge-gold">Exclusive Apparel</span>
+    <h2 style="font-size: 2.3rem; margin-top: 8px;">OUR T-SHIRT COLLECTION</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">Premium 240 GSM oversized streetwear tees.</p>
+</div>
+
+<!-- Main Product Grid -->
+<div class="products-grid">
+    <!-- Deer Tee Card (Original Style) -->
+    <div class="product-card" id="card-deer">
+        <div class="product-thumb">
+            <img src="images/deer.jpeg" alt="Kyvor Majestic Deer Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Deer+Tee'">
+        </div>
+        <div class="product-details">
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Majestic Deer Tee</h3>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
             
-            <!-- T-SHIRTS -->
-            <div style="margin-bottom: 20px; text-align: center;">
-                <span class="badge-gold">Exclusive Apparel</span>
-                <h2 style="font-size: 2.3rem; margin-top: 8px;">OUR T-SHIRT COLLECTION</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium 240 GSM oversized streetwear tees.</p>
-            </div>
-
-            <div class="products-grid">
-                <!-- Deer Tee Card -->
-                <div class="product-card" id="card-deer">
-                    <div class="product-thumb">
-                        <img src="images/deer.jpeg" alt="Kyvor Majestic Deer Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Deer+Tee'">
-                    </div>
-                    <div class="product-details">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Majestic Deer Tee</h3>
-                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
-                        
-                        <div class="selector-wrap">
-                            <span class="selector-label">Available Sizes:</span>
-                            <div class="btn-group">
-                                <button class="size-btn" onclick="selectOption(this, 'deerSize')">M</button>
-                                <button class="size-btn" onclick="selectOption(this, 'deerSize')">L</button>
-                                <button class="size-btn active" onclick="selectOption(this, 'deerSize')">XL</button>
-                                <button class="size-btn" onclick="selectOption(this, 'deerSize')">XXL</button>
-                            </div>
-                        </div>
-
-                        <div class="selector-wrap">
-                            <span class="selector-label">Select Colour:</span>
-                            <div class="btn-group">
-                                <button class="color-btn active" onclick="selectOption(this, 'deerColor')">Jet Black</button>
-                                <button class="color-btn" onclick="selectOption(this, 'deerColor')">Navy Blue</button>
-                                <button class="color-btn" onclick="selectOption(this, 'deerColor')">White</button>
-                                <button class="color-btn" onclick="selectOption(this, 'deerColor')">Parrot Green</button>
-                                <button class="color-btn" onclick="selectOption(this, 'deerColor')">Mustard Yellow</button>
-                                <button class="color-btn" onclick="selectOption(this, 'deerColor')">Orange</button>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
-                            <span style="font-size: 1.2rem; font-weight: 800; color: var(--accent-gold);">₹400</span>
-                            <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Majestic Deer Tee', 400, 'card-deer')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
-                        </div>
-                    </div>
+            <div class="selector-wrap">
+                <span class="selector-label">Available Sizes:</span>
+                <div class="btn-group">
+                    <button class="size-btn" onclick="selectOption(this, 'deerSize')">M</button>
+                    <button class="size-btn" onclick="selectOption(this, 'deerSize')">L</button>
+                    <button class="size-btn active" onclick="selectOption(this, 'deerSize')">XL</button>
+                    <button class="size-btn" onclick="selectOption(this, 'deerSize')">XXL</button>
                 </div>
             </div>
-<!-- Supra Tee Card (Clean Style) -->
-<div class="product-card" id="card-supra">
-    <div class="product-thumb">
-        <img src="images/supra.jpeg" alt="Kyvor Supra Street Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Supra+Tee'">
-    </div>
-    <div class="product-details">
-        <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Supra Street Tee</h3>
-        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
-        
-        <div class="selector-wrap">
-            <span class="selector-label">Available Sizes:</span>
-            <div class="btn-group">
-                <button class="size-btn" onclick="selectOption(this, 'supraSize')">M</button>
-                <button class="size-btn" onclick="selectOption(this, 'supraSize')">L</button>
-                <button class="size-btn active" onclick="selectOption(this, 'supraSize')">XL</button>
-                <button class="size-btn" onclick="selectOption(this, 'supraSize')">XXL</button>
+
+            <div class="selector-wrap">
+                <span class="selector-label">Select Colour:</span>
+                <div class="btn-group">
+                    <button class="color-btn active" onclick="selectOption(this, 'deerColor')">Jet Black</button>
+                    <button class="color-btn" onclick="selectOption(this, 'deerColor')">Navy Blue</button>
+                    <button class="color-btn" onclick="selectOption(this, 'deerColor')">White</button>
+                    <button class="color-btn" onclick="selectOption(this, 'deerColor')">Parrot Green</button>
+                    <button class="color-btn" onclick="selectOption(this, 'deerColor')">Mustard Yellow</button>
+                    <button class="color-btn" onclick="selectOption(this, 'deerColor')">Orange</button>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                <span style="font-size: 1.2rem; font-weight: 800; color: var(--accent-gold);">₹400</span>
+                <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Majestic Deer Tee', 400, 'card-deer')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
             </div>
         </div>
+    </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
-            <span style="font-size: 1.2rem; font-weight: 800; color: var(--accent-gold);">₹450</span>
-            <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Supra Street Tee', 450, 'card-supra')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+    <!-- Supra Tee Card (Clean Style) -->
+    <div class="product-card" id="card-supra">
+        <div class="product-thumb">
+            <img src="images/supra.jpeg" alt="Kyvor Supra Street Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Supra+Tee'">
+        </div>
+        <div class="product-details">
+            <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Supra Street Tee</h3>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
+            
+            <div class="selector-wrap">
+                <span class="selector-label">Available Sizes:</span>
+                <div class="btn-group">
+                    <button class="size-btn" onclick="selectOption(this, 'supraSize')">M</button>
+                    <button class="size-btn" onclick="selectOption(this, 'supraSize')">L</button>
+                    <button class="size-btn active" onclick="selectOption(this, 'supraSize')">XL</button>
+                    <button class="size-btn" onclick="selectOption(this, 'supraSize')">XXL</button>
+                </div>
+            </div>
+
+            <!-- Removed Color Selectors from here -->
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                <span style="font-size: 1.2rem; font-weight: 800; color: var(--accent-gold);">₹450</span>
+                <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Supra Street Tee', 450, 'card-supra')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+            </div>
         </div>
     </div>
 </div>
+<!-- END OF T-SHIRT COLLECTION -->
+          
             <!-- MUGS -->
             <div style="margin: 60px 0 20px; text-align: center;">
                 <span class="badge-gold">Personalized Gifting</span>
