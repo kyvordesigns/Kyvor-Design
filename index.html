@@ -263,7 +263,43 @@
                     </div>
                 </div>
             </div>
+<!-- Supra Tee Card -->
+<div class="product-card" id="card-supra">
+    <div class="product-thumb">
+        <img src="images/supra.jpeg" alt="Kyvor Supra Street Tee" onerror="this.src='https://via.placeholder.com/400x500?text=Supra+Tee'">
+    </div>
+    <div class="product-details">
+        <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Kyvor Supra Street Tee</h3>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">240 GSM Heavyweight Oversized Cotton Tee.</p>
+        
+        <div class="selector-wrap">
+            <span class="selector-label">Available Sizes:</span>
+            <div class="btn-group">
+                <button class="size-btn" onclick="selectOption(this, 'supraSize')">M</button>
+                <button class="size-btn" onclick="selectOption(this, 'supraSize')">L</button>
+                <button class="size-btn active" onclick="selectOption(this, 'supraSize')">XL</button>
+                <button class="size-btn" onclick="selectOption(this, 'supraSize')">XXL</button>
+            </div>
+        </div>
 
+        <div class="selector-wrap">
+            <span class="selector-label">Select Colour:</span>
+            <div class="btn-group">
+                <button class="color-btn active" onclick="selectOption(this, 'supraColor')">Jet Black</button>
+                <button class="color-btn" onclick="selectOption(this, 'supraColor')">Navy Blue</button>
+                <button class="color-btn" onclick="selectOption(this, 'supraColor')">White</button>
+                <button class="color-btn" onclick="selectOption(this, 'supraColor')">Parrot Green</button>
+                <button class="color-btn" onclick="selectOption(this, 'supraColor')">Mustard Yellow</button>
+                <button class="color-btn" onclick="selectOption(this, 'supraColor')">Orange</button>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+            <span style="font-size: 1.2rem; font-weight: 800; color: var(--accent-gold);">₹450</span>
+            <button class="btn-gold" style="width: auto; padding: 8px 16px; font-size: 0.8rem;" onclick="addToCart('Kyvor Supra Street Tee', 450, 'card-supra')"><i class="fa-solid fa-plus"></i> Add To Bag</button>
+        </div>
+    </div>
+</div>
             <!-- MUGS -->
             <div style="margin: 60px 0 20px; text-align: center;">
                 <span class="badge-gold">Personalized Gifting</span>
